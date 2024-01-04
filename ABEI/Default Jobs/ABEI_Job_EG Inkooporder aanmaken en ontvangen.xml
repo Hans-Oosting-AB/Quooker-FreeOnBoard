@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<jobs>
+  <instanceguid>685c1cb2-db42-43e3-bec6-73eb1a1514eb</instanceguid>
+  <job>
+    <id>4326</id>
+    <jobname>EG: Inkooporder aanmaken en ontvangen</jobname>
+    <disable>False</disable>
+    <emailbody></emailbody>
+    <emailmode>0</emailmode>
+    <emailsubject></emailsubject>
+    <emailto></emailto>
+    <remarks></remarks>
+    <schedulename></schedulename>
+    <schedulesettings>startat=13:51:22;beginat=00:00:00;endat=23:59:59;day1=0;day2=0;day3=0;day4=0;day5=0;day6=0;day7=0;enabled=0</schedulesettings>
+    <settings></settings>
+    <steps>
+      <step>
+        <id>7012</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>IF OBJECT_ID('_AB_tb_example_PurchaseOrders', 'U') IS NULL
+BEGIN
+    CREATE TABLE [dbo].[_AB_tb_example_PurchaseOrders](
+        [ID] [int] IDENTITY(1,1) NOT NULL,
+        [targetDB] [varchar](250) NULL,
+        [referencekey] [varchar](100) NOT NULL,
+        [HeaderID] [varchar](100) NOT NULL,
+        [ordernr] [char](8) NULL,
+        [crdnr] [char](6) NULL,
+        [refer] [varchar](20) NULL,
+        [refer1] [varchar](20) NULL,
+        [refer2] [varchar](20) NULL,
+        [refer3] [varchar](20) NULL,
+        [docnumber] [varchar](30) NULL,
+        [levwijze] [char](5) NULL,
+        [colli] [char](5) NULL,
+        [betaald] [tinyint] NULL,
+        [del_AddressLine1] [varchar](100) NULL,
+        [del_AddressLine2] [varchar](100) NULL,
+        [del_AddressLine3] [varchar](100) NULL,
+        [del_PostCode] [varchar](20) NULL,
+        [del_City] [varchar](100) NULL,
+        [del_Phone] [varchar](50) NULL,
+        [lineID] [int] NULL,
+        [artcode] [varchar](30) NULL,
+        [oms45] [varchar](60) NULL,
+        [esr_aantal] [float] NULL,
+        [afldat] [datetime] NULL,
+        [unitcode] [char](8) NULL,
+        [prijs_n] [float] NULL,
+        [prijs83] [float] NULL,
+        [prijslijst] [varchar](15) NULL,
+        [btw_code] [char](3) NULL,
+        [gewicht_bi] [float] NULL,
+        [instruction] [varchar](160) NULL,
+        [magcode] [char](4) NULL,
+        [res_id] [int] NULL,
+        [isUpdate] [int] NULL,
+        [isProcess] [bit] NULL,
+        [targetoverride] [int] NULL,
+        [mailto] [varchar](150) NULL,
+        [seqno] [int] NOT NULL,
+        [rowstatus] [int] NULL,
+        [retryCounter] [int] NULL,
+        [runid] [uniqueidentifier] NULL,
+        [errormessage] [varchar](max) NULL,
+        [syscreated] [datetime] NULL,
+        [syscreator] [varchar](50) NULL,
+        [sysmodified] [datetime] NULL,
+        [uiRef] [uniqueidentifier] NULL,
+     CONSTRAINT [PK__AB_tb_example_PurchaseOrders] PRIMARY KEY CLUSTERED 
+    (
+        [ID] ASC
+    )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+    ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]   
+
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_isUpdate]  DEFAULT ((0)) FOR [isUpdate] 
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_isProcess]  DEFAULT ((0)) FOR [isProcess]
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_seqno]  DEFAULT ((0)) FOR [seqno]
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_rowstatus]  DEFAULT ((0)) FOR [rowstatus]
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_retryCounter]  DEFAULT ((0)) FOR [retryCounter]
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_syscreated]  DEFAULT (getdate()) FOR [syscreated]
+    ALTER TABLE [dbo].[_AB_tb_example_PurchaseOrders] ADD  CONSTRAINT [DF__AB_tb_example_PurchaseOrders_sysmodified]  DEFAULT (getdate()) FOR [sysmodified] 
+END
+
+</datasource>
+        <contentbody />
+        <mapping />
+        <disable>1</disable>
+        <remarks />
+        <replace />
+        <seqno>0</seqno>
+        <settings />
+        <settingsxml />
+        <stepname>Create table</stepname>
+      </step>
+      <step>
+        <id>7013</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>INSERT INTO [%abeisourcedb%].dbo._AB_tb_example_PurchaseOrders (referencekey, HeaderID, crdnr, refer, docnumber, artcode, esr_aantal, res_id, isUpdate, isProcess, syscreator)
+SELECT TOP (5) i.ID as referencekey
+    , CONCAT(FLOOR(RAND()*(200-1+1))+1,c.crdnr) as HeaderID -- Voor voorbeeld, uniek ID per insert
+    , c.crdnr, 'ABEI Example' as refer, 'ABEI Example' as docnumber
+    , i.ItemCode as Artcode
+    , FLOOR(RAND(CONVERT(varbinary, NEWID()))*(25-1+1))+1 as esr_aantal -- Random nummer tussen 1 en 25, verschillend voor elke regel
+    , h.res_id
+    , 0 as isUpdate -- Default 0, 0 = create, 1 = update, 2 = none (voor als je alleen wilt ontvangen)
+    , 1 as isProcess -- Default 0, 0 = Niet ontvangen, 1 = Ontvang order
+    , 'ABEI' as syscreator
+FROM [%abeitargetdb%].dbo.Items i WITH (NOLOCK)
+    CROSS APPLY ( SELECT TOP (1) c.crdnr 
+        FROM [%abeitargetdb%].dbo.cicmpy c WITH (NOLOCK) 
+            INNER JOIN [%abeitargetdb%].dbo.ItemAccounts ia WITH (NOLOCK)
+                ON ia.AccountCode = c.cmp_wwn AND ia.ItemCode = i.ItemCode
+        WHERE c.crdnr IS NOT NULL AND c.cmp_status = 'A' AND cmp_type = 'S') c
+    CROSS APPLY (SELECT TOP (1) h.res_id FROM [%abeitargetdb%].dbo.humres h WITH (NOLOCK) WHERE h.blocked = 0 AND h.emp_type = 'E') h
+WHERE 1=1
+    AND i.Condition = 'A'
+    AND i.IsPurchaseItem = 1
+    AND i.ItemType NOT IN ('P', 'L', 'M', 'I')
+    AND i.IsBatchItem = 0
+    AND i.IsSerialNumberItem = 0</datasource>
+        <contentbody />
+        <mapping />
+        <disable>1</disable>
+        <remarks />
+        <replace />
+        <seqno>1</seqno>
+        <settings />
+        <settingsxml />
+        <stepname>Tabel vullen met test data (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>6975</id>
+        <entity>-none-</entity>
+        <action>process</action>
+        <source>0</source>
+        <target>80</target>
+        <datasource>SELECT TOP (1) 
+ 0 as doQuit
+FROM    [dbo].[_AB_tb_example_PurchaseOrders] as d with (nolock)
+WHERE 1=1
+    AND ISNULL(d.rowstatus,0) = 0
+
+
+</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>10</seqno>
+        <settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <gen_usevb6processor>false</gen_usevb6processor>
+              <referencekey />
+            </general>
+            <systemtarget>
+              <systemtarget_skiptoseqno />
+              <systemtarget_sleep>0</systemtarget_sleep>
+              <systemtarget_user />
+              <systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd>
+            </systemtarget>
+          </settings>
+        </settingsxml>
+        <stepname>Quit job if no data</stepname>
+      </step>
+      <step>
+        <id>6976</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>UPDATE d WITH (ROWLOCK, NOWAIT) SET
+rowstatus = 1
+, seqno = CASE WHEN ISNULL(d.seqno, 0) &lt;&gt; 0 THEN d.seqno ELSE %seqno% END -- Niet overschrijven ivm retry punt
+, runid = '%runid%'
+, sysmodified = CURRENT_TIMESTAMP
+FROM    [dbo].[_AB_tb_example_PurchaseOrders] as d
+WHERE 1=1
+    AND d.ID IN (
+        -- Orders met hetzelfde HeaderID blijven bij elkaar door de TOP WITH TIES &amp; ORDER BY HeaderID, ookal zijn er meer regels dan het aantal in de TOP
+        -- Gebruik dit alleen als je een UPDATE TOP (x) gebruikt
+        -- WITH TIES kun je niet gebruiken in combinatie met ORDER BY syscreated als je meerdere syscreated hebt voor 1 HeaderID
+        SELECT TOP (%rows_per_run%) WITH TIES 
+            d.ID 
+            FROM    [dbo].[_AB_tb_example_PurchaseOrders] as d WITH (NOLOCK)
+        WHERE 1=1
+            AND ISNULL(d.rowstatus,0) = 0
+        ORDER BY d.HeaderID
+    )
+
+--let op: order by kan niet met een top dan moet je een exists of cte gebruiken</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>20</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Update te verwerken gegevens</stepname>
+      </step>
+      <step>
+        <id>6977</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>UPDATE o SET 
+    targetoverride = c.ID
+    , rowstatus = CASE WHEN c.ID IS NULL THEN -1 ELSE o.rowstatus END
+    , seqno = CASE WHEN c.ID IS NULL THEN %seqno% ELSE 20 END -- alleen overschrijven als invalid target, terug naar 20 als valid
+    , errormessage = CASE WHEN c.ID IS NULL THEN 'Invalid targetDB' END
+    , sysmodified = CURRENT_TIMESTAMP
+FROM [dbo].[_AB_tb_example_PurchaseOrders] o WITH (NOLOCK)
+    LEFT JOIN [%abeidb%].dbo._AB_Entity_connections c WITH (NOLOCK) ON c.db = CONVERT(varchar(50), o.targetDB) 
+WHERE 1=1
+    AND o.runid = '%runid%'</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>1</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>21</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Targetoverride optie (letop, ook targetoverride instellen bij overige stappen)</stepname>
+      </step>
+      <step>
+        <id>6978</id>
+        <entity>PurchaseOrderLine</entity>
+        <action>create</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>SELECT TOP (1000) 
+    o.HeaderID
+    , o.referencekey
+    , o.artcode
+    , o.oms45
+    , o.esr_aantal
+    , o.unitcode
+    , o.afldat
+    , o.prijs83
+    , o.prijs_n
+    , o.prijslijst
+    , o.btw_code
+    , o.gewicht_bi
+    , o.instruction
+    , o.magcode
+    , o.res_id
+    --, o.targetoverride
+    , o.ID as field01 -- Deze wordt gebruikt om later de juiste regel terug te vinden in Globe
+FROM dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK) 
+WHERE 1=1
+    AND o.isUpdate = 0 -- Create
+    AND o.runid = '%runid%'
+    AND o.seqno = 20
+ORDER BY o.ordernr, o.referencekey</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>30</seqno>
+        <settings>uniquekey=;retryunique=0;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <referencekey>referencekey</referencekey>
+              <datacolumns>
+                <datacolumn>
+                  <name>HeaderID</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>referencekey</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>artcode</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>oms45</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>esr_aantal</name>
+                  <type>Double</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>unitcode</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>afldat</name>
+                  <type>DateTime</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>prijs83</name>
+                  <type>Double</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>prijs_n</name>
+                  <type>Double</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>prijslijst</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>btw_code</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>gewicht_bi</name>
+                  <type>Double</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>instruction</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>magcode</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>field01</name>
+                  <type>Int32</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+          </settings>
+        </settingsxml>
+        <stepname>Create PurchaseLine (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>6979</id>
+        <entity>PurchaseOrderHeader</entity>
+        <action>create</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>SELECT DISTINCT 
+    o.HeaderID
+    , o.crdnr
+    , o.refer
+    , o.refer1
+    , o.refer2
+    , o.refer3
+    , o.docnumber
+    , o.levwijze
+    , o.colli
+    , o.del_AddressLine1
+    , o.del_AddressLine2
+    , o.del_AddressLine3
+    , o.del_City
+    , o.del_Phone
+    , o.del_PostCode
+    --, o.targetoverride
+    , o.betaald -- Partial delivery allowed
+    , 1 as IsUseAdditionalFields -- Deze worden gebruikt om later de juiste aangemaakte regel terug te vinden
+FROM dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK) 
+WHERE 1=1
+    AND o.isUpdate = 0 -- Create
+    AND o.runid = '%runid%'
+    AND o.seqno = 20</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>30</seqno>
+        <settings>uniquekey=;retryunique=0;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <referencekey>HeaderID</referencekey>
+              <datacolumns>
+                <datacolumn>
+                  <name>HeaderID</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>crdnr</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>refer</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>refer1</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>refer2</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>refer3</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>docnumber</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>levwijze</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>colli</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_AddressLine1</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_AddressLine2</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_AddressLine3</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_City</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_Phone</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>del_PostCode</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>res_id</name>
+                  <type>Int32</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>betaald</name>
+                  <type>Byte</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>IsUseAdditionalFields</name>
+                  <type>Int32</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+          </settings>
+        </settingsxml>
+        <stepname>Create PurchaseHeader (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>6980</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>UPDATE o WITH (ROWLOCK, NOWAIT) SET
+    rowstatus = CASE WHEN ISNULL(rh.rowstatus,-1) &lt;&gt; 2 THEN -1 ELSE 2 END
+    , seqno = CASE WHEN ISNULL(rh.rowstatus,-1) &lt;&gt; 2 THEN seqno ELSE %seqno% END
+    , errormessage = ISNULL(r.errormessage, 'No result found')
+    , sysmodified = CURRENT_TIMESTAMP
+    , ordernr = ISNULL(o.ordernr, rh.NewKeyvalue)
+    , lineID = ISNULL(o.lineID, r.NewKeyvalue)
+FROM dbo._AB_tb_example_PurchaseOrders o
+    -- Results for lines
+    LEFT OUTER JOIN [%abeidb%].dbo._AB_Entity_results r with (nolock) 
+        ON o.runid = r.runid 
+        and r.jobid = %jobid%
+        and r.Entity = 'PurchaseOrderLine'
+        and r.Action = 'create'
+        and r.ReferenceValue = o.referencekey
+    -- New ordernr
+    LEFT OUTER JOIN [%abeidb%].dbo._AB_Entity_results rh with (nolock) 
+        ON o.runid = rh.runid 
+        and rh.jobid = %jobid%
+        and rh.Entity = 'PurchaseOrderHeader'
+        and rh.Action = 'create'
+        and rh.ReferenceValue = o.HeaderID
+WHERE 1=1
+    AND o.runid = '%runid%'
+    AND o.seqno = 20
+
+--altijd een 'outer apply' of 'left outer join' gebruiken! dit omdat je dan geen records mist</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>40</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Bijwerken status op basis van ABEI results</stepname>
+      </step>
+      <step>
+        <id>6981</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>UPDATE o WITH (ROWLOCK, NOWAIT) SET
+    lineID = r.ID
+FROM [%abeisourcedb%].dbo._AB_tb_example_PurchaseOrders o
+    INNER JOIN [%abeitargetdb%].[dbo].[AdditionalOrderLines] aol WITH (NOLOCK)
+    ON aol.Ordernumber = o.ordernr COLLATE DATABASE_DEFAULT AND aol.Field01 = o.ID
+    INNER JOIN [%abeitargetdb%].[dbo].[orsrg] r WITH (NOLOCK)
+        ON r.ordernr = o.ordernr COLLATE DATABASE_DEFAULT AND r.regel = aol.LineNumber AND r.uitgifte = 0
+WHERE 1=1
+    --AND o.targetDB = '%abeitargetdb%' -- SDK does not work with dynamic target, so when you use those you have to copy this step for each DB
+    AND o.runid = '%runid%'
+    AND o.seqno = 40
+    AND o.lineID IS NULL</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>41</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Bijwerken lineID als niet gevonden in results (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>7014</id>
+        <entity>SDK-PurchaseOrder-PrintProcess</entity>
+        <action>process</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>SELECT DISTINCT 
+    k.ordernr, 1 as IsFinal, 2 as PrintDestination, ISNULL(l.layoutnaam, 'NLEXACT1') as PrintLayout
+FROM dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK)
+    INNER JOIN [%abeitargetdb%].dbo.orkrg k WITH (NOLOCK)
+        ON k.ordernr = o.ordernr COLLATE DATABASE_DEFAULT
+    -- Layout van crediteur
+    LEFT JOIN [%abeitargetdb%].dbo.laycrd l WITH (NOLOCK)
+        ON l.form_type = 'BESTLAY' AND l.bedrnr = k.Division AND l.crdnr = k.crdnr
+WHERE  1=1
+    AND k.ordbv_afgd = 0
+    --AND o.targetDB = '%abeitargetdb%' -- SDK does not work with dynamic target, so when you use those you have to copy this step for each DB
+    AND o.runid = '%runid%'
+    AND o.seqno = 40
+    AND o.isProcess = 1</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>100</seqno>
+        <settings>uniquekey=;retryunique=0;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <referencekey>ordernr</referencekey>
+              <datacolumns>
+                <datacolumn>
+                  <name>ordernr</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>IsFinal</name>
+                  <type>Int32</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>PrintDestination</name>
+                  <type>Int32</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>PrintLayout</name>
+                  <type>String</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+          </settings>
+        </settingsxml>
+        <stepname>SDK PrintProcess (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>7015</id>
+        <entity>SDK-PurchaseOrder-ReceiptLine</entity>
+        <action>process</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>SELECT  
+    k.ordernr     as HeaderID
+    , k.ordernr
+    , r.ID
+    , o.referencekey
+    , o.artcode
+    , o.esr_aantal   
+FROM dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK)
+    INNER JOIN [%abeitargetdb%].dbo.orkrg k WITH (NOLOCK)
+        ON k.ordernr = o.ordernr COLLATE DATABASE_DEFAULT
+    INNER JOIN [%abeitargetdb%].dbo.orsrg r WITH (NOLOCK)
+    ON r.ordernr = k.ordernr AND r.ID = o.lineID AND r.uitgifte = 0
+WHERE 1=1
+    --AND o.targetDB = '%abeitargetdb%' -- SDK does not work with dynamic target, so when you use those you have to copy this step for each DB
+    AND o.runid = '%runid%'
+    AND o.seqno = 40
+    AND o.isProcess = 1</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>110</seqno>
+        <settings>uniquekey=;retryunique=0;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <gen_usevb6processor>false</gen_usevb6processor>
+              <referencekey>referencekey</referencekey>
+              <datacolumns>
+                <datacolumn>
+                  <name>HeaderID</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>ordernr</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>ID</name>
+                  <type>Int32</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>referencekey</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>artcode</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>esr_aantal</name>
+                  <type>Double</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+          </settings>
+        </settingsxml>
+        <stepname>SDK Receipt Line (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>7016</id>
+        <entity>SDK-PurchaseOrder-ReceiptHeader</entity>
+        <action>process</action>
+        <source>0</source>
+        <target>115</target>
+        <datasource>SELECT DISTINCT 
+      k.ordernr       as ReferenceValue
+    , k.ordernr       as HeaderID
+    , k.ordernr
+FROM dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK)
+    INNER JOIN [%abeitargetdb%].dbo.orkrg k WITH (NOLOCK)
+    ON k.ordernr = o.ordernr COLLATE DATABASE_DEFAULT
+WHERE  1=1
+    --AND o.targetDB = '%abeitargetdb%' -- SDK does not work with dynamic target, so when you use those you have to copy this step for each DB
+    AND o.runid = '%runid%'
+    AND o.seqno = 40
+    AND o.isProcess = 1</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>110</seqno>
+        <settings>uniquekey=;retryunique=0;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <gen_usevb6processor>false</gen_usevb6processor>
+              <referencekey />
+              <datacolumns>
+                <datacolumn>
+                  <name>ReferenceValue</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>HeaderID</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>ordernr</name>
+                  <type>String</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+          </settings>
+        </settingsxml>
+        <stepname>SDK Receipt Header (letop target op Globe zetten)</stepname>
+      </step>
+      <step>
+        <id>7017</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>UPDATE o WITH (ROWLOCK, NOWAIT) SET
+    rowstatus = CASE WHEN ISNULL(r.rowstatus,-1) &lt;&gt; 2 THEN -1 ELSE 2 END
+    , seqno = CASE WHEN ISNULL(r.rowstatus,-1) &lt;&gt; 2 THEN seqno ELSE %seqno% END
+    , errormessage = ISNULL(r.errormessage, 'No result found')
+    , sysmodified = CURRENT_TIMESTAMP
+FROM dbo._AB_tb_example_PurchaseOrders o
+    -- Results
+    LEFT OUTER JOIN [%abeidb%].dbo._AB_Entity_results r with (nolock) 
+        ON o.runid = r.runid 
+        and r.jobid = %jobid%
+        and r.Entity = 'SDK-PurchaseOrder-ReceiptHeader'
+        AND r.HeaderID = o.ordernr
+WHERE 1=1
+    AND o.runid = '%runid%'
+    AND o.seqno = 40
+    AND o.isProcess = 1
+
+--altijd een 'outer apply' of 'left outer join' gebruiken! dit omdat je dan geen records mist</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>0</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>900</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Bijwerken status op basis van ABEI results</stepname>
+      </step>
+      <step>
+        <id>6982</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>6</target>
+        <datasource>SELECT o.crdnr as Crediteur
+    , o.refer as Oms
+    , o.docnumber as Referentie
+    , o.levwijze as Leveringswijze
+    , o.artcode as Artikel
+    , o.oms45 as Omschrijving
+    , o.esr_aantal as Aantal
+    , o.syscreator as Bron
+    , o.seqno as Seqno
+    , o.errormessage as Melding
+    , o.mailto
+FROM [%abeisourcedb%].dbo._AB_tb_example_PurchaseOrders o WITH (NOLOCK)
+WHERE 1=1
+    AND o.rowstatus &lt;&gt; 2
+    AND o.runid = '%runid%'
+    AND o.retrycounter = %mail_at_retrynr%</datasource>
+        <contentbody>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;META content="text/html; charset=UTF-8" http-equiv=Content-Type /&gt;&lt;META name=GENERATOR content="MSHTML 11.00.9600.18036" /&gt;&lt;/HEAD&gt;&lt;body &gt;&lt;p&gt;&lt;font face="Calibri"&gt;Beste Gebruiker,&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font face="Calibri"&gt;Onderstaande meldingen zijn voorgekomen bij het aanmaken van de inkooporders.&lt;br&gt;&lt;font face="Calibri"&gt;Graag de resultaten nalopen en indien nodig handmatig verwerken.&lt;font face="Calibri"&gt;&lt;table style="border-width: 1px; border-collapse: collapse;" border="1" cellspacing="0" cellpadding="1"&gt;&lt;br&gt;&lt;tbody&gt;&lt;tr bgcolor="silver"&gt;&lt;td&gt;Crediteur&lt;/td&gt;&lt;td&gt;Oms&lt;/td&gt;&lt;td&gt;Referentie&lt;/td&gt;&lt;td&gt;Leveringswijze&lt;/td&gt;&lt;td&gt;Artikel&lt;/td&gt;&lt;td&gt;Omschrijving&lt;/td&gt;&lt;td&gt;Aantal&lt;/td&gt;&lt;td&gt;Bron&lt;/td&gt;&lt;td&gt;Seqno&lt;/td&gt;&lt;td&gt;Melding&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr class="abei_dynamic_row"&gt;&lt;td&gt;%Crediteur%&lt;/td&gt;&lt;td&gt;%Oms%&lt;/td&gt;&lt;td&gt;%Referentie%&lt;/td&gt;&lt;td&gt;%Leveringswijze%&lt;/td&gt;&lt;td&gt;%Artikel%&lt;/td&gt;&lt;td&gt;%Omschrijving%&lt;/td&gt;&lt;td&gt;%Aantal%&lt;/td&gt;&lt;td&gt;%Bron%&lt;/td&gt;&lt;td&gt;%Seqno%&lt;/td&gt;&lt;td&gt;%Melding%&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;tr bgcolor="silver" color="black"&gt;&lt;td colspan="11"&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;br&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;p&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;Deze mail is automatisch gegenereerd door ABEI om %abeinow%&lt;br&gt;Runid: %runid%&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;/font&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/font&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/font&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/font&gt;&lt;/font&gt;&lt;/body&gt;&lt;/HTML&gt;</contentbody>
+        <mapping></mapping>
+        <disable>1</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>910</seqno>
+        <settings>retryunique=0;uniquekey=;emailfrom=absc.abei@gmail.com;emailname=ABEI @ LAPTOP-LVE;emailreplyto=;emailuser=absc.abei@gmail.com;emailpwd=mwRIyauE3fi6fPToVZWEeMKBPMmrzLDYXp00ZEA1VK0%equalchar%;emailserver=smtp.gmail.com;emailport=587;emailssl=True;emailto=%mailto%;emailcc=;emailbcc=;emailsub=Meldingen ABEI - Aanmaken Inkooporder;emailbodyusesource=0;emailsendifnoresults=0;emailcontentcolumns=Crediteur,Oms,Referentie,Leveringswijze,Artikel,Omschrijving,Aantal,Bron,Seqno,Melding;mex_connectionid=0;emailsplitcolumn=mailto;</settings>
+        <settingsxml>
+          <settings>
+            <general>
+              <gen_datasource_method>0</gen_datasource_method>
+              <target_override />
+              <referencekey />
+              <datacolumns>
+                <datacolumn>
+                  <name>Crediteur</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Oms</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Referentie</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Leveringswijze</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Artikel</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Omschrijving</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Aantal</name>
+                  <type>Double</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Bron</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Seqno</name>
+                  <type>Int32</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>Melding</name>
+                  <type>String</type>
+                </datacolumn>
+                <datacolumn>
+                  <name>mailto</name>
+                  <type>String</type>
+                </datacolumn>
+              </datacolumns>
+            </general>
+            <email>
+              <emailattachment_allowduplicate>false</emailattachment_allowduplicate>
+              <emailimpersonation_account />
+              <emailbodytype>html</emailbodytype>
+              <attachments />
+            </email>
+          </settings>
+        </settingsxml>
+        <stepname>Mail ABEI Meldingen</stepname>
+      </step>
+      <step>
+        <id>6983</id>
+        <entity>-none-</entity>
+        <action>exec SQL</action>
+        <source>0</source>
+        <target>0</target>
+        <datasource>UPDATE d WITH (ROWLOCK, NOWAIT) SET
+  rowstatus = 0
+, retrycounter += 1
+, sysmodified = CURRENT_TIMESTAMP
+FROM    [dbo].[_AB_tb_example_PurchaseOrders] as d
+WHERE 1=1
+AND d.rowstatus &lt;&gt; 2
+AND d.runid = '%runid%'
+AND d.retrycounter &lt; %max_retry%
+
+
+</datasource>
+        <contentbody></contentbody>
+        <mapping></mapping>
+        <disable>1</disable>
+        <remarks></remarks>
+        <replace></replace>
+        <seqno>920</seqno>
+        <settings></settings>
+        <settingsxml />
+        <stepname>Retry optie</stepname>
+      </step>
+    </steps>
+  </job>
+</jobs>

@@ -1,0 +1,5 @@
+﻿Id;ExactDbNum;bkstnr;ordernr;orderLineID;artcode;aantal;datumOntvangst;levwijze;planned_deliveryDate;PackageDescription;GLAccountDistribution;GLAccountCost;GLPriceDifference;CurrentInventoryCostPrice;CostPriceCurrency;initalPurchaseOrderNr;initalPurchaseOrderLineId;AmutakID;createdBkstnr;PurchaseInvoice_LineEntry;PurchaseInvoice_HeaderEntry;syscreated;sysmodified;runid;rowstatus;sysmessage;retry_counter
+107;115;23982423;90059387;613726;11.186.00;17820;2023-11-15 00:00:00.000;"DHL  ";2023-11-22 00:00:00.000;"pcs     ";"     3000";"     7600";"     7740";3,837;EUR;90057610;549300;3022504;23982429;NULL;3022506;2023-11-15 09:23:37.367;2023-11-15 09:23:47.197;A835BBB5-1A64-490C-81ED-18F50E6164E2;2;"Purchase Invoice Created. ABEI ENtity Result Success.
+Purchase Invoice Created";0
+108;115;23982423;90059387;613726;11.186.00;17820;2023-11-15 00:00:00.000;"DHL  ";2023-11-22 00:00:00.000;"pcs     ";"     3000";"     7600";"     7740";3,837;EUR;90057610;549300;3022504;23982429;NULL;3022506;2023-11-15 09:23:37.367;2023-11-15 09:23:47.197;A835BBB5-1A64-490C-81ED-18F50E6164E2;2;"Purchase Invoice Created. ABEI ENtity Result Success.
+Purchase Invoice Created";0

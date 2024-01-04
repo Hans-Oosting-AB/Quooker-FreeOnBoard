@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?><jobs><instanceguid>ef53c07f-bb3c-4350-b57d-005223ec9b2e</instanceguid><job><id>227</id><jobname>Inkooporders aanpassen live</jobname><disable>False</disable><emailbody /><emailmode>0</emailmode><emailsubject /><emailto></emailto><remarks></remarks><schedulename /><schedulesettings>freq=10;timescale=minutes;startat=11:53:11;beginat=06:00:00;endat=22:59:59;day1=-1;day2=-1;day3=-1;day4=-1;day5=-1;day6=0;day7=0;enabled=-1</schedulesettings><settings></settings><settingsxml><settings><schedule><allowmultipleprocessorinstances>false</allowmultipleprocessorinstances></schedule><general><maxjobstepactions>200</maxjobstepactions></general><jobparams><jobparam><name>param_RetryTimes</name><type>String</type><value>6</value></jobparam><jobparam><name>param_WaitingTime</name><type>String</type><value>1</value></jobparam><jobparam><name>param_DefaultMailTo</name><type>String</type><value>B.Logtenberg@absc.nl</value></jobparam><jobparam><name>param_MailToNaam</name><type>String</type><value>ABEI service</value></jobparam><jobparam><name>param_AantalOrderPerKeer</name><type>String</type><value>1</value></jobparam></jobparams></settings></settingsxml><steps><step><id>3902</id><entity>-none-</entity><action>exec SQL</action><source>104</source><target>101</target><datasource>
+DECLARE @ordernummer INT = 529630
+
+DELETE from [%abeisourcedb%].[dbo].[_AB_tb_ScansysAanlev]
+DELETE from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+
+INSERT INTO [%abeisourcedb%].[dbo].[_AB_tb_ScansysAanlev]
+           ([crediteur]
+           ,[factuurnummer]
+           ,[orddat]
+           ,[inkooporderregel]
+           ,[inkooporder]
+           ,[artikelnummer]
+           ,[huidigeAantal]
+           ,[huidigeLeverdatum]
+           ,[huidigeDatum]
+           ,[huidigePrijs]
+           ,[nieuwAantal]
+           ,[nieuweLeverdatum]
+           ,[nieuwePrijs]
+           ,[deellevering]
+           ,[leverdatumDeellevering]
+           ,[medewerker]
+           ,[syscreated]
+           ,[sysmodified])
+     SELECT 
+    ord_debtor_name
+    ,'12345'
+    ,orddat
+    ,regel
+    ,ltrim(r.ordernr)
+    ,artcode
+    ,esr_aantal
+    ,PlannedDate
+    ,PlannedDate
+    ,prijs_n
+    ,esr_aantal
+    ,PlannedDate
+    ,prijs_n
+    ,0
+    ,getdate()
+    ,1610
+    , getdate()
+    , getdate()
+
+    FROM [%abeitargetdb%].[dbo].Orkrg (nolock) k
+    JOIN [%abeitargetdb%].[dbo].Orsrg (nolock) r ON r.ordernr = k.ordernr
+WHERE r.ordernr = @ordernummer
+
+</datasource><contentbody /><mapping /><disable>1</disable><remarks /><replace /><seqno>1</seqno><settings /><settingsxml /><stepname>Voor het tetsten</stepname></step><step><id>4001</id><entity>-none-</entity><action>process</action><source>104</source><target>80</target><datasource>
+SELECT TOP 1 CASE
+               WHEN x.id IS NULL THEN 0
+               ELSE 1
+             END AS doQuit
+FROM   (VALUES (0)) AS l(v)
+       OUTER apply (SELECT r.id
+       FROM   [%abeiserver%].[%abeidb%].[dbo].[_ab_entity_log] AS r with (nolock)
+                    WHERE  1 = 1
+                           AND r.jobid = '%jobid%'
+                           AND r.runid != '%runid%'
+                           AND r.syscreated &gt; Dateadd(hour, -2, CURRENT_TIMESTAMP) -- check for max 2 hours back
+                           AND NOT EXISTS (SELECT rl.id
+                                           FROM
+                                            [%abeiserver%].[%abeidb%].[dbo].[_ab_entity_log] AS rl WITH (nolock)
+                                            WHERE  1 = 1
+                                                   AND rl.runid = r.runid
+                                                   AND rl.jobid = r.jobid
+                                                   AND rl.seqno = -10)
+-- -10 is 'Finished Running Job'
+) AS x</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>10</seqno><settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><jobparams /><datacolumns><datacolumn><name>doQuit</name><type>Int32</type></datacolumn></datacolumns></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_param4 /><systemtarget_param5 /><systemtarget_param6 /><systemtarget_skiptoseqno /><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Finished Running Job</stepname></step><step><id>3903</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>15</seqno><settings></settings><settingsxml /><stepname>== Start verwerking</stepname></step><step><id>3904</id><entity>-none-</entity><action>exec SQL</action><source>104</source><target>101</target><datasource>-- Selecteer te verwerken levering
+
+INSERT INTO [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+    (
+          ordernr
+        , orsrgID
+        , action
+        , artcode
+        , line
+        , esr_aantal
+        , huidigeAantal
+        , nieuwAantal
+        , aantal
+        , crediteur
+        ,[factuurnummer]
+        ,[orddat]
+        ,[inkooporderregel]
+        ,[inkooporder]
+        ,[artikelnummer]
+        ,[huidigeLeverdatum]
+        ,[huidigePrijs]
+        ,[nieuweLeverdatum]
+        ,[nieuwePrijs]
+        ,[deellevering]
+        ,[leverdatumDeellevering]
+        ,[medewerker]
+        ,[instruction]
+        ,[syscreatedScansys]
+        ,[runid]
+        ,[jobid]
+        ,[seqno]
+        ,[jobstepid]
+        ,[Rowstatus]
+    )
+
+select  ol.ordernr
+        , case when l.line = 1 then ol.id else 0 end as orsrgID
+        , case when l.line = 1 then 
+            'EDIT' 
+        else 
+        'ADDNEW' 
+        end as action
+        , ol.artcode
+        , l.line
+        , ol.esr_aantal
+        , al.huidigeAantal
+        , al.nieuwAantal
+        , l.aantal
+        , al.crediteur
+        , al.factuurnummer
+        , al.orddat
+        , al.inkooporderregel
+        , substring (space(8) + al.inkooporder , len(space(8) + al.inkooporder) - 7, 8) as inkooporder
+        , al.artikelnummer
+        , al.huidigeLeverdatum
+        , al.huidigePrijs
+        , l.datum
+        , al.nieuwePrijs
+        , al.deellevering
+        , al.leverdatumDeellevering
+        , al.medewerker
+        , case when l.line = 1 then 
+                case when ol.instruction is NOT null then concat (al.factuurnummer COLLATE DATABASE_DEFAULT, ' // ', ol.instruction) else al.factuurnummer end  
+            else 
+                NULL 
+            end as instruction   
+        , al.syscreated
+        , '%runid%'
+        , %jobid%
+        , %seqno%
+        , %jobstepid%
+        , 0
+
+from    [%abeitargetdb%].dbo.orsrg as ol (nolock)
+        inner join [%abeisourcedb%].[dbo].[_AB_tb_ScansysAanlev] as al (nolock) 
+        on ol.ordernr = substring (space(8) + al.inkooporder , len(space(8) + al.inkooporder) - 7, 8) COLLATE DATABASE_DEFAULT 
+        and ol.regel = al.inkooporderregel COLLATE DATABASE_DEFAULT
+
+        CROSS APPLY (VALUES(1, al.nieuwAantal, al.nieuweLeverdatum),(2, case when al.deellevering = 1 then al.huidigeAantal - al.nieuwAantal else 0 end, al.leverdatumDeellevering)) l(line, aantal, datum)  
+where   1=1 
+        --and 
+        --(
+        --  --(l.aantal != ol.esr_aantal) 
+        --  --or (sl.huidigeLeverdatum != sl.nieuweLeverdatum)
+        --  --or (sl.huidigePrijs != sl.nieuwePrijs)
+        --)
+        and l.aantal != 0
+        and al.runid is null
+
+
+        </datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>20</seqno><settings /><settingsxml /><stepname>Verplaats alle nieuwe leveringen naar ToDo</stepname></step><step><id>3908</id><entity>-none-</entity><action>exec SQL</action><source>104</source><target>0</target><datasource>
+-- Update runid in aanlev
+
+UPDATE [%abeisourcedb%].[dbo].[_AB_tb_ScansysAanlev]
+SET runid = '%runid%'
+
+    from [%abeisourcedb%].[dbo].[_AB_tb_ScansysAanlev] al (nolock)
+
+    WHERE exists (select factuurnummer 
+        from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] td (nolock) 
+        where 1=1
+        AND td.runid = '%runid%' 
+        AND td.factuurnummer = al.factuurnummer)
+
+</datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>30</seqno><settings /><settingsxml /><stepname>Update runid in ScansysAanlev</stepname></step><step><id>3905</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>40</seqno><settings></settings><settingsxml /><stepname>== Controle te verwerken nieuwe/retry levering</stepname></step><step><id>3906</id><entity>-none-</entity><action>exec SQL</action><source>104</source><target>104</target><datasource>-- controle op nieuwe levering nieuw heeft voorang op retry
+
+IF ((SELECT count(*) FROM [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] where rowstatus = 0) &gt; 0)
+BEGIN
+     -- geef een nieuwe de status 1 in behandeling.
+     UPDATE [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+     set rowstatus = 1
+     , retrycount = isnull (retrycount, 0) + 1
+     , runid = '%runid%'
+     FROM [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+     WHERE 1=1
+     and rowstatus = 0
+     and inkooporder = (select top 1 inkooporder from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] (nolock) 
+                               where 1=1
+                               AND rowstatus = 0 
+                               order by Id)
+END
+ELSE
+BEGIN
+     -- probeer om een retry op status 1 in behandeling te zetten
+     UPDATE [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+     set rowstatus = 1
+     , runid = '%runid%'
+     , retrycount += 1
+     FROM [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo]
+     WHERE 1=1
+     and rowstatus = -1
+     and inkooporder = (select top 1 inkooporder from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] (nolock) 
+                                where 1=1
+                                AND rowstatus = -1
+                                -- AND retryTime &lt;= getdate()
+                                AND retrycount &lt;= %param_RetryTimes% 
+                                order by Id)
+END
+
+
+</datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>50</seqno><settings /><settingsxml /><stepname>Selecteer te verwerken levering</stepname></step><step><id>3907</id><entity>-none-</entity><action>process</action><source>104</source><target>80</target><datasource>
+select top 1 0 as DoQuit
+from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] (nolock)
+where 1=1 
+AND rowstatus = 1
+
+</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>60</seqno><settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey>DoQuit</referencekey><jobparams /><datacolumns><datacolumn><name>DoQuit</name><type>Int32</type></datacolumn></datacolumns></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_param4 /><systemtarget_param5 /><systemtarget_param6 /><systemtarget_skiptoseqno /><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Quit?</stepname></step><step><id>3910</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>70</seqno><settings></settings><settingsxml /><stepname>== Update levering in Exact</stepname></step><step><id>3909</id><entity>PurchaseOrderLine</entity><action>update/create</action><source>104</source><target>101</target><datasource>
+-- update orderlines
+
+SELECT td.orsrgID as ID, o.ordernr as HeaderID, td.orsrgID as ReferenceValue -- benodigde velden voor het kunnen updaten van een orderline de controle.
+    , td.action as Action
+    , td.aantal as esr_aantal   
+    , td.nieuweLeverdatum as afldat
+    , td.nieuwePrijs as Prijs_n
+    , td.nieuwePrijs as prijs83
+    , td.instruction as instruction
+    , td.artcode as artcode
+
+    FROM  [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] td (nolock)
+    JOIN [%abeitargetdb%].[dbo].[orsrg] as o (nolock) 
+    on td.inkooporder = o.ordernr COLLATE DATABASE_DEFAULT 
+    and td.inkooporderregel = o.regel COLLATE DATABASE_DEFAULT
+
+WHERE 1 = 1
+     AND td.runid = '%runid%'
+     AND td.rowstatus = 1
+     </datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>80</seqno><settings /><settingsxml /><stepname>Update Orderlines</stepname></step><step><id>3911</id><entity>PurchaseOrderHeader</entity><action>update/create</action><source>104</source><target>101</target><datasource>
+-- Header line
+
+SELECT magcode
+    , ordernr as HeaderID
+    , ordernr
+    , ID as ReferenceValue
+    FROM [%abeitargetdb%].[dbo].[Orkrg] (nolock)
+    WHERE ordernr = (
+        SELECT TOP 1 inkooporder
+        FROM [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] (nolock)
+        WHERE 1 = 1 
+        and runid = '%runid%'
+        and rowstatus = 1
+        ) COLLATE DATABASE_DEFAULT</datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>80</seqno><settings /><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns /></general></settings></settingsxml><stepname>Update OrderHeader</stepname></step><step><id>3912</id><entity>-none-</entity><action>exec SQL</action><source>104</source><target>101</target><datasource>
+-- update logging
+
+update td set
+      td.rowstatus = case when isnull(r.rowstatus, -1) = 2 then 2 else -1 end
+    , td.sysmessage = case when isnull(r.rowstatus, -1) = 2 then CONCAT(td.sysmessage, ' | Processed') else concat(td.sysmessage, ' | Processing failed: ', r.errormessage collate database_default) end
+    , td.sysmodified = current_timestamp
+--select * 
+from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] td (nolock)
+left outer join [%abeidb%].[dbo].[_AB_Entity_results] r (nolock) 
+    on r.runid = td.runid
+    and r.Action = 'update'
+    and r.Entity = 'PurchaseOrderHeader'
+where 1=1 
+    and td.runid = '%runid%'
+    and td.rowstatus = 1</datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>90</seqno><settings /><settingsxml /><stepname>Update logging</stepname></step><step><id>3913</id><entity>SDK-PurchaseOrder-Authorize</entity><action>process</action><source>104</source><target>101</target><datasource>
+-- fiatteren 
+
+select top 1 td.ordernr from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] td
+join [%abeitargetdb%].[dbo].[orkrg] (nolock) o
+on o.ordernr = td.inkooporder  COLLATE DATABASE_DEFAULT
+where 1=1
+AND o.fiattering = 'N'   -- allen dan fiatteren, het is togle functie 
+AND td.deellevering = 0 -- allen dan fiatteren, het is togle functie
+AND td.rowstatus = 2     -- wijziging moet gelukt zijn
+and runid = '%runid%'
+
+</datasource><contentbody /><mapping /><disable>0</disable><remarks /><replace /><seqno>100</seqno><settings /><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns /></general></settings></settingsxml><stepname>Fiatteren </stepname></step><step><id>3915</id><entity>SDK-PurchaseOrder-PrintProcess</entity><action>process</action><source>104</source><target>101</target><datasource>
+-- Afdrukken
+
+select top 1 
+    td.ordernr
+    , 1 as isFinal
+    , 2 as PrintDestination
+    , 'PODSVAIR' as PrintLayout
+
+ from [%abeisourcedb%].[dbo].[_AB_tb_ScansysToDo] td
+join [%abeitargetdb%].[dbo].[orkrg] (nolock) o
+on o.ordernr = td.inkooporder  COLLATE DATABASE_DEFAULT
+where 1=1
+AND o.ordbv_afgd = 0    -- maar niet als hij op dit moment afgedrukt is
+AND td.deellevering = 0 -- allen dan fiatteren, het is togle functie
+AND td.rowstatus = 2     -- wijziging moet gelukt zijn
+and runid = '%runid%'</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>110</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>ordernr</name><type>String</type></datacolumn><datacolumn><name>isFinal</name><type>Int32</type></datacolumn><datacolumn><name>PrintDestination</name><type>Int32</type></datacolumn><datacolumn><name>PrintLayout</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>Afdrukken</stepname></step><step><id>3914</id><entity>-none-</entity><action>create</action><source>104</source><target>6</target><datasource>
+-- retry mail versturen
+
+-- Let op gegevens uit Exact halen.
+
+SELECT DISTINCT factuurnummer, inkooporder, crediteur , hum.mail
+ , case when hum.mail is not null then hum.mail else '%param_DefaultMailTo%' end as emailto
+-- , '%param_MailToNaam%' as naam
+    
+FROM [ABEI_PURCHASE].[dbo].[_AB_tb_ScansysToDo] td  (nolock)
+left JOIN [001].[dbo].[humres] hum
+    on hum.res_id = td.medewerker
+
+
+    WHERE 1=1 
+    -- AND runid = '%runid%'
+    -- AND retrycount &gt; %param_RetryTimes%
+    
+</datasource><contentbody>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
+&lt;HTML&gt;
+&lt;HEAD&gt;&lt;META content="text/html; charset=UTF-8" http-equiv=Content-Type /&gt;&lt;META name=GENERATOR content="MSHTML 11.00.9600.18036" /&gt;&lt;/HEAD&gt;&lt;body &gt;&lt;p&gt;Beste %naam%,&lt;/p&gt;
+&lt;p&gt;Dit is een voorbeeld van een email via de standaard ABEI emailer.&lt;/p&gt;
+&lt;p&gt;
+&lt;table style="border: 1px solid currentColor; border-image: none; width: 90%; border-collapse: collapse;" cellspacing="0" cellpadding="1" ?="" black?;=""&gt;
+  &lt;tbody&gt;
+  &lt;tr bgcolor="skyblue"&gt;
+    &lt;td&gt;factuurnummer&lt;/td&gt;
+    &lt;td&gt;inkooporders&lt;/td&gt;
+    &lt;td&gt;crediteur&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr class="sql"&gt;
+    &lt;td colspan="5"&gt;## Query Table Content ##&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr bgcolor="silver" color="black"&gt;
+    &lt;td colspan="5"&gt;Footer text&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Met vriendelijke groet,&lt;/p&gt;
+&lt;p&gt;ABEI&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;/body&gt;&lt;/HTML&gt;</contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>120</seqno><settings>retryunique=0;uniquekey=;emailfrom=noreplay@absc.nl;emailname=;emailreplyto=;emailuser=rsmith@rwbteam.com;emailpwd=TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%;emailserver=smtp.office365.com;emailport=578;emailssl=False;emailto=%emailto%;emailcc=;emailbcc=;emailsub=;emailbodyusesource=0;emailsendifnoresults=0;emailcontentcolumns=;mex_connectionid=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>factuurnummer</name><type>String</type></datacolumn><datacolumn><name>inkooporders</name><type>String</type></datacolumn><datacolumn><name>crediteur</name><type>String</type></datacolumn><datacolumn><name>emailto</name><type>String</type></datacolumn><datacolumn><name>naam</name><type>String</type></datacolumn></datacolumns></general><email><emailattachment_allowduplicate>false</emailattachment_allowduplicate><emailimpersonation_account /><emailbodytype>html</emailbodytype><emailsaveasdraft>false</emailsaveasdraft><attachments /></email></settings></settingsxml><stepname>retry mail versturen</stepname></step></steps></job></jobs>
