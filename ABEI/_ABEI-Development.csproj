@@ -10,5 +10,9 @@
 	  <None Remove="Test Results\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="SQL\Job-SQL\" />
+	</ItemGroup>
+
 
 </Project>

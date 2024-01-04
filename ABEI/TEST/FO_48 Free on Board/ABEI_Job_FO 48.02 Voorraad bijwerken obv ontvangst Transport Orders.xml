@@ -1,164 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<jobs>
-	<instanceguid>f6fcce99-28a1-49a2-9891-e5b8a31d4f48</instanceguid>
-	<job>
-		<id>1399</id>
-		<jobname>FO 48.02 Voorraad bijwerken obv ontvangst Transport Orders</jobname>
-		<disable>False</disable>
-		<emailbody></emailbody>
-		<emailmode>0</emailmode>
-		<emailsubject></emailsubject>
-		<emailto>h.oosting@absc.nl</emailto>
-		<remarks>
-			219: 00.933.786
-			FO: 04.162.147
-			FO: 04.226.921 (addendum)
-		</remarks>
-		<schedulename></schedulename>
-		<schedulesettings></schedulesettings>
-		<settings></settings>
-		<settingsxml>
-			<settings>
-				<schedule>
-					<forceseparaterun>false</forceseparaterun>
-					<allowmultipleprocessorinstances>false</allowmultipleprocessorinstances>
-					<schedules>
-						<scheduledetails>
-							<scheduleid>0</scheduleid>
-							<allowmultipleprocessorinstances>False</allowmultipleprocessorinstances>
-							<forceseparaterun>0</forceseparaterun>
-							<freq>1</freq>
-							<timescale>minutes</timescale>
-							<frequency>weekly</frequency>
-							<frequency_recurrence>1</frequency_recurrence>
-							<frequency_dayofmonth>1</frequency_dayofmonth>
-							<frequency_dayofmonth_day>1</frequency_dayofmonth_day>
-							<frequency_dayofmonth_daypos>1</frequency_dayofmonth_daypos>
-							<frequency_dayofmonth_type>nr</frequency_dayofmonth_type>
-							<scheduledenabled>-1</scheduledenabled>
-							<startat>15:13:06</startat>
-							<beginat>08:02:00</beginat>
-							<endat>17:59:59</endat>
-							<day1>-1</day1>
-							<day2>-1</day2>
-							<day3>-1</day3>
-							<day4>-1</day4>
-							<day5>-1</day5>
-							<day6>0</day6>
-							<day7>0</day7>
-							<duration_start>2022-10-31</duration_start>
-							<duration_end>2073-12-21</duration_end>
-						</scheduledetails>
-					</schedules>
-				</schedule>
-				<general>
-					<maxjobstepactions>9999</maxjobstepactions>
-				</general>
-				<gui>
-					<appearancesettings />
-				</gui>
-				<jobparams>
-					<jobparam>
-						<name>param_email_for_send_message</name>
-						<type>String</type>
-						<value>inkoop@quooker.nl;h.oosting@absc.nl</value>
-					</jobparam>
-					<jobparam>
-						<name>param_eg_database_name</name>
-						<type>String</type>
-						<value>115</value>
-					</jobparam>
-					<jobparam>
-						<name>param_eg_division</name>
-						<type>String</type>
-						<value>115</value>
-					</jobparam>
-					<jobparam>
-						<name>param_number_of_records_per_run</name>
-						<type>String</type>
-						<value>100</value>
-					</jobparam>
-					<jobparam>
-						<name>param_number_of_records_per_api_call</name>
-						<type>String</type>
-						<value>5</value>
-					</jobparam>
-					<jobparam>
-						<name>param_max_retry_counter</name>
-						<type>String</type>
-						<value>6</value>
-					</jobparam>
-					<jobparam>
-						<name>Tablename_Preceder</name>
-						<type>String</type>
-						<value>_AB_tb_FO-48-FreeOnBoard</value>
-					</jobparam>
-					<jobparam>
-						<name>param_from_afldat</name>
-						<type>String</type>
-						<value>2023-10-17</value>
-					</jobparam>
-					<jobparam>
-						<name>param_default_warehouse</name>
-						<type>String</type>
-						<value>03</value>
-					</jobparam>
-					<jobparam>
-						<name>param_log_max_retain_days</name>
-						<type>String</type>
-						<value>60</value>
-					</jobparam>
-					<jobparam>
-						<name>param_retry_directly</name>
-						<type>String</type>
-						<value>false</value>
-					</jobparam>
-					<jobparam>
-						<name>param_TransportOrder_SelectionCode</name>
-						<type>String</type>
-						<value>TR</value>
-					</jobparam>
-					<jobparam>
-						<name>param_inventory_journal</name>
-						<type>String</type>
-						<value>41</value>
-					</jobparam>
-					<jobparam>
-						<name>param_account_balance</name>
-						<type>String</type>
-						<value>3200</value>
-					</jobparam>
-					<jobparam>
-						<name>param_purchase_journal</name>
-						<type>String</type>
-						<value>61</value>
-					</jobparam>
-					<jobparam>
-						<name>param_order_Header_additionalfield_name</name>
-						<type>String</type>
-						<value>Field09</value>
-					</jobparam>
-					<jobparam>
-						<name>param_order_Line_additionalfield_name</name>
-						<type>String</type>
-						<value>Field09</value>
-					</jobparam>
-					<jobparam>
-						<name>param_account_TBReceived</name>
-						<type>String</type>
-						<value>3010</value>
-					</jobparam>
-				</jobparams>
-			</settings>
-		</settingsxml>
-		<steps>
-			<step>
-				<id>27415</id>
-				<entity>-none-</entity>
-				<action>process</action>
-				<source>0</source>
-				<target>80</target>
-				<datasource>
+﻿<?xml version="1.0" encoding="utf-8"?><jobs><instanceguid>276302b1-8de5-494d-8283-de0765958a99</instanceguid><job><id>2371</id><jobname>FO 48.02 Voorraad bijwerken obv ontvangst Transport Orders</jobname><disable>False</disable><emailbody></emailbody><emailmode>0</emailmode><emailsubject></emailsubject><emailto>h.oosting@absc.nl</emailto><remarks>219: 00.933.786
+FO: 04.162.147
+FO: 04.226.921 (addendum)
+Extend to Warehouse 96 CD 04.345.682
+		</remarks><schedulename></schedulename><schedulesettings></schedulesettings><settings></settings><settingsxml><settings><schedule><forceseparaterun>false</forceseparaterun><allowmultipleprocessorinstances>false</allowmultipleprocessorinstances><schedules><scheduledetails><scheduleid>0</scheduleid><allowmultipleprocessorinstances>False</allowmultipleprocessorinstances><forceseparaterun>0</forceseparaterun><freq>1</freq><timescale>minutes</timescale><frequency>weekly</frequency><frequency_recurrence>1</frequency_recurrence><frequency_dayofmonth>1</frequency_dayofmonth><frequency_dayofmonth_day>1</frequency_dayofmonth_day><frequency_dayofmonth_daypos>1</frequency_dayofmonth_daypos><frequency_dayofmonth_type>nr</frequency_dayofmonth_type><scheduledenabled>-1</scheduledenabled><startat>15:13:06</startat><beginat>08:02:00</beginat><endat>17:59:59</endat><day1>-1</day1><day2>-1</day2><day3>-1</day3><day4>-1</day4><day5>-1</day5><day6>0</day6><day7>0</day7><duration_start>2022-10-31</duration_start><duration_end>2074-01-04</duration_end></scheduledetails></schedules></schedule><general><maxjobstepactions>9999</maxjobstepactions></general><gui><appearancesettings /></gui><jobparams><jobparam><name>param_email_for_send_message</name><type>String</type><value>h.oosting@absc.nl</value></jobparam><jobparam><name>param_eg_database_name</name><type>String</type><value>115</value></jobparam><jobparam><name>param_eg_division</name><type>String</type><value>115</value></jobparam><jobparam><name>param_number_of_records_per_run</name><type>String</type><value>100</value></jobparam><jobparam><name>param_number_of_records_per_api_call</name><type>String</type><value>5</value></jobparam><jobparam><name>param_max_retry_counter</name><type>String</type><value>6</value></jobparam><jobparam><name>Tablename_Preceder</name><type>String</type><value>_AB_tb_FO-48-FreeOnBoard</value></jobparam><jobparam><name>param_from_afldat</name><type>String</type><value>2023-10-17</value></jobparam><jobparam><name>param_default_warehouse</name><type>String</type><value>03</value></jobparam><jobparam><name>param_log_max_retain_days</name><type>String</type><value>60</value></jobparam><jobparam><name>param_retry_directly</name><type>String</type><value>false</value></jobparam><jobparam><name>param_TransportOrder_SelectionCode</name><type>String</type><value>TR</value></jobparam><jobparam><name>param_inventory_journal</name><type>String</type><value>41</value></jobparam><jobparam><name>param_account_balance</name><type>String</type><value>3200</value></jobparam><jobparam><name>param_purchase_journal</name><type>String</type><value>61</value></jobparam><jobparam><name>param_order_Header_additionalfield_name</name><type>String</type><value>Field09</value></jobparam><jobparam><name>param_order_Line_additionalfield_name</name><type>String</type><value>Field09</value></jobparam><jobparam><name>param_account_TBReceived</name><type>String</type><value>3010</value></jobparam></jobparams></settings></settingsxml><steps><step><id>5420</id><entity>-none-</entity><action>process</action><source>0</source><target>80</target><datasource>
 					SELECT TOP (1)
 					CASE WHEN x.id IS NULL THEN 0 ELSE 1 END as doQuit
 
@@ -179,96 +23,11 @@
 					) as x
 					WHERE 1=1
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>0</seqno>
-				<settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns />
-						</general>
-						<systemtarget>
-							<systemtarget_param2 />
-							<systemtarget_param3 />
-							<systemtarget_skiptoseqno />
-							<systemtarget_sleep>0</systemtarget_sleep>
-							<systemtarget_user />
-							<systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd>
-						</systemtarget>
-					</settings>
-				</settingsxml>
-				<stepname>Quit job if job already running</stepname>
-			</step>
-			<step>
-				<id>27416</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>0</source>
-				<target>101</target>
-				<datasource>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>0</seqno><settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns /></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_skiptoseqno /><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Quit job if job already running</stepname></step><step><id>5421</id><entity>-none-</entity><action>exec SQL</action><source>0</source><target>101</target><datasource>
 					update Settings set BitValue = 1
 					where SettingName = 'UseAdditionalFields'
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>1</seqno>
-				<settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns />
-						</general>
-						<systemtarget>
-							<systemtarget_param2 />
-							<systemtarget_param3 />
-							<systemtarget_skiptoseqno />
-							<systemtarget_sleep>0</systemtarget_sleep>
-							<systemtarget_user />
-							<systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd>
-						</systemtarget>
-					</settings>
-				</settingsxml>
-				<stepname>Activate additional fields (EG)</stepname>
-			</step>
-			<step>
-				<id>27417</id>
-				<entity>-none-</entity>
-				<action>textline</action>
-				<source>0</source>
-				<target>0</target>
-				<datasource></datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>1</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>10</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>==  Initialize &amp; Masintain Data Structure  ==</stepname>
-			</step>
-			<step>
-				<id>27418</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>103</source>
-				<target>103</target>
-				<datasource>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>1</seqno><settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns /></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_skiptoseqno /><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Activate additional fields (EG)</stepname></step><step><id>5422</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>10</seqno><settings></settings><settingsxml /><stepname>==  Initialize &amp; Masintain Data Structure  ==</stepname></step><step><id>5423</id><entity>-none-</entity><action>exec SQL</action><source>103</source><target>103</target><datasource>
 					-- Create Log Table
 					IF NOT EXISTS (SELECT * FROM [%abeitargetdb%].sys.objects WHERE name = N'%Tablename_Preceder%_Log' AND type in (N'U'))
 					BEGIN
@@ -413,24 +172,61 @@
 					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
 					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Created_TransportOrder_Receipts Exists.')
 					END
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>10</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>ABSC: Initialiseer Datamodel</stepname>
-			</step>
-			<step>
-				<id>27419</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>103</source>
-				<target>103</target>
-				<datasource>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>10</seqno><settings></settings><settingsxml /><stepname>ABSC: Initialiseer Datamodel</stepname></step><step><id>5445</id><entity>-none-</entity><action>exec SQL</action><source>103</source><target>103</target><datasource>-- FO-48 Extend CD 04.345.682
+
+IF NOT EXISTS (SELECT * 
+                FROM sys.columns
+                WHERE object_id = OBJECT_ID(N'[dbo].[%Tablename_Preceder%_Log]')
+                AND [name] = 'magcode'
+                )
+BEGIN
+    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Log needs to have magcode columns added and updated (99/03).')
+
+ALTER TABLE [dbo].[%Tablename_Preceder%_Log]
+    ADD --COLUMN
+
+    [magcode_FoB] char(4) NULL 
+    [magcode] char(4) NULL
+
+    -- (Old FoB functionality was about these specific magcodes (Warhouse)
+    UPDATE [dbo].[%Tablename_Preceder%_Log]
+    SET
+        [magcode_FoB] = '99'
+        [magcode] = '03'
+END
+    
+    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Created_TransportOrder_Receipts has magcode columns.')
+
+                    
+IF NOT EXISTS (SELECT * 
+                FROM sys.columns
+                WHERE object_id = OBJECT_ID(N'[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]')
+                AND [name] = 'magcode'
+                )
+BEGIN
+    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Created_TransportOrder_Receipts needs to have magcode columns added and updated (99/03).')
+
+    ALTER TABLE [dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]
+        ADD --COLUMN
+
+        [magcode_FoB] char(4) NULL 
+        [magcode] char(4) NULL
+
+    -- (Old FoB functionality was about these specific magcodes (Warhouse)
+    UPDATE [dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]
+    SET
+        [magcode_FoB] = '99'
+        [magcode] = '03'
+END
+
+    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Created_TransportOrder_Receipts has magcode columns.')
+
+    
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>15</seqno><settings></settings><settingsxml /><stepname>ABSC: Extend Datamodel (Warehouse)</stepname></step><step><id>5424</id><entity>-none-</entity><action>exec SQL</action><source>103</source><target>103</target><datasource>
 					DECLARE @stepName [varchar](255) = 'ABSC: Clear old log'
 					DECLARE @oldestDate datetime = DATEADD(d, -%param_log_max_retain_days%, GETDATE())
 					DECLARE @numProcessed int
@@ -447,657 +243,263 @@
 					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
 					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Deleted: ' + CONVERT(varchar(10), @numProcessed)+ ' log entries' )
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>20</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>ABSC: Clear old log</stepname>
-			</step>
-			<step>
-				<id>27420</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>101</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'EG: Check for new TransportOrder Deliveries'
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>20</seqno><settings></settings><settingsxml /><stepname>ABSC: Clear old log</stepname></step><step><id>5425</id><entity>-none-</entity><action>exec SQL</action><source>101</source><target>103</target><datasource>DECLARE @stepName [varchar](255) = 'EG: Check for new TransportOrder Deliveries'
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Looking for newly delivered created Transport Orders.')
+INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Looking for newly delivered created Transport Orders.')
 
-					DECLARE @numToProcess int
+DECLARE @numToProcess int
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] (syscreated, sysmodified, runId, rowstatus, sysmessage, ExactDbNum,
-					[bkstnr], -- varchar(20) NOT NULL, -- ontvangst boeking nummer (varchar(20))
-					[datumOntvangst],-- datetime NOT NULL,
-					[ordernr], --CHAR(8) NOT NULL,
-					[levwijze], --CHAR(5) NOT NULL,
-					[planned_deliveryDate], -- datetime NOT NULL,
-					initalPurchaseOrderNr,
-					[orderLineID], -- int NOT NULL,
-					initalPurchaseOrderLineId,
-					[artcode], -- varchar(30) NOT NULL
-					[aantal], -- float NOT NULL default 0,
-					-- From Items
-					PackageDescription, --  char(8) null,
-					GLAccountDistribution, -- varchar(9) NULL,
-					GLAccountCost, --  varchar(9) NULL,
-					GLPriceDifference,
-					[CostPriceCurrency], --  varchar(3) NULL,
-					-- Original inital PO Receipt CostPrice OR latest recount / value of inventory in WareHouse 99
-					CurrentInventoryCostPrice --  float NOT NULL DEFAULT 0,
-					)
-					SELECT
-					CURRENT_TIMESTAMP as syscreated, CURRENT_TIMESTAMP as [sysmodified], '%runid%' as runId, 0 as rowstatus, @stepName as sysmessage, %param_eg_division% as ExactDbNum,
-					receipts.bkstnr -- ontvangst boeking nummer (varchar(20))
-					, receipts.datum as datumOntvangst
-					, receipts.ordernr
-					, receipts.levwijze as levwijze
-					, receipts.afldat as planned_deliveryDate
-					, receipts.[initalPurchaseOrderNr]      -- %param_order_Header_additionalfield_name% -- Field09
-					, TOLine.ID as orderLineID --(int)
-					, olt.[%param_order_Line_additionalfield_name%] as [initalPurchaseOrderLineId]  -- Field09
-					, GM.artcode -- (varchar(30))
-					, GM.aantal  -- float
-					, IT.PackageDescription
-					, IT.GLAccountDistribution
-					, IT.GLAccountCost
-					, ITG.GLPriceDifference
-					, IT.[CostPriceCurrency]
-					, ISNULL(
-					CASE WHEN GMartRecount.aantal IS NULL
-					THEN CASE WHEN ISNULL(GMiPOreceive.aantal, 0) = 0
-					THEN ISNULL(GMiPOreceive.bdr_val, 0)
-					ELSE ROUND(ISNULL(GMiPOreceive.bdr_val, 0) / GMiPOreceive.aantal, 3) -- 3 digits
-					END
-					ELSE CASE WHEN ISNULL(GMartRecount.aantal, 0) = 0
-					THEN ISNULL(GMartRecount.bdr_val, 0)
-					ELSE ROUND(ISNULL(GMartRecount.bdr_val, 0) / GMartRecount.aantal, 3) -- 3 digits
-					END
-					END
-					, IT.[CostPriceStandard]) as CurrentInventoryCostPrice
+INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] (syscreated, sysmodified, runId, rowstatus, sysmessage, ExactDbNum,
+    [bkstnr], -- varchar(20) NOT NULL, -- ontvangst boeking nummer (varchar(20))
+    [datumOntvangst],-- datetime NOT NULL,
+    [ordernr], --CHAR(8) NOT NULL,
+    [levwijze], --CHAR(5) NOT NULL,
+    [planned_deliveryDate], -- datetime NOT NULL,
+    initalPurchaseOrderNr,
+    [orderLineID], -- int NOT NULL,
+    initalPurchaseOrderLineId,
+    [artcode], -- varchar(30) NOT NULL
+    [aantal], -- float NOT NULL default 0,
+    -- From Items
+    PackageDescription, --  char(8) null,
+    GLAccountDistribution, -- varchar(9) NULL,
+    GLAccountCost, --  varchar(9) NULL,
+    GLPriceDifference,
+    [CostPriceCurrency], --  varchar(3) NULL,
+    -- Original inital PO Receipt CostPrice OR latest recount / value of inventory in WareHouse 99
+    CurrentInventoryCostPrice --  float NOT NULL DEFAULT 0,
+    [magcode_FoB], -- FO-48 Extend CD 04.345.682
+    [magcode]       -- FO-48 Extend CD 04.345.682
+)
+SELECT
+    CURRENT_TIMESTAMP as syscreated, CURRENT_TIMESTAMP as [sysmodified], '%runid%' as runId, 0 as rowstatus, @stepName as sysmessage, %param_eg_division% as ExactDbNum,
+    receipts.bkstnr -- ontvangst boeking nummer (varchar(20))
+    , receipts.datum as datumOntvangst
+    , receipts.ordernr
+    , receipts.levwijze as levwijze
+    , receipts.afldat as planned_deliveryDate
+    , receipts.[initalPurchaseOrderNr]      -- %param_order_Header_additionalfield_name% -- Field09
+    , egOL.ID as orderLineID --(int)
+    , egOLa.[%param_order_Line_additionalfield_name%] as [initalPurchaseOrderLineId]  -- Field09
+    , GM.artcode -- (varchar(30))
+    , GM.aantal  -- float
+    , IT.PackageDescription
+    , IT.GLAccountDistribution
+    , IT.GLAccountCost
+    , ITG.GLPriceDifference
+    , IT.[CostPriceCurrency]
+    , ISNULL(
+        CASE WHEN GMartRecount.aantal IS NULL
+        THEN CASE WHEN ISNULL(GMiPOreceive.aantal, 0) = 0
+                THEN ISNULL(GMiPOreceive.bdr_val, 0)
+                ELSE ROUND(ISNULL(GMiPOreceive.bdr_val, 0) / GMiPOreceive.aantal, 3) -- 3 digits
+            END
+        ELSE CASE WHEN ISNULL(GMartRecount.aantal, 0) = 0
+                THEN ISNULL(GMartRecount.bdr_val, 0)
+                ELSE ROUND(ISNULL(GMartRecount.bdr_val, 0) / GMartRecount.aantal, 3) -- 3 digits
+            END
+        END
+    , IT.[CostPriceStandard]) as CurrentInventoryCostPrice
+    , receipts.magcode_FoB
+    , receipts.magcode
+FROM (SELECT DISTINCT TOP  %param_number_of_records_per_run%            -- MAX num records: bkstnr: Receipt slips
+          currentRunGM.bkstnr
+        , currentRunGM.datum
+        , currentRunEgOH.ordernr
+        , currentRunEgOH.levwijze
+        , currentRunEgOH.afldat
+        , currentRunEgOHa.[%param_order_Header_additionalfield_name%] as [initalPurchaseOrderNr]        -- %param_order_Header_additionalfield_name% : Field09
+        , currentRunEgOH.magcode    -- FO-48 Extend CD 04.345.682
+        , CASE currentRunEgOH.magcode
+            WHEN '03' THEN '99'
+            WHEN '16' THEN '98'
+            END as magcode_FoB -- FO-48 Extend CD 04.345.682
+        FROM [%abeisourcedb%].[dbo].[gbkmut] AS currentRunGM WITH (NOLOCK)
+        INNER JOIN [%abeisourcedb%].[dbo].[Items] AS currentRunIT WITH (NOLOCK)
+            ON currentRunIT.ItemCode = currentRunGM.artcode
+            AND currentRunGM.reknr = currentRunIT.GLAccountDistribution         -- Filter voorraad boekingen
+        INNER JOIN [%abeisourcedb%].[dbo].[orkrg] AS currentRunEgOH WITH (NOLOCK)
+            ON currentRunEgOH.ordernr = currentRunGM.bkstnr_sub
+        INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderHeader currentRunEgOHa
+            ON currentRunEgOHa.OrderNumber = currentRunEgOH.ordernr
+        LEFT JOIN [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
+            ON currentRunGM.bkstnr = cTOr.bkstnr
+        WHERE 1=1
+            -- Filter receipts in Warehouse 03
+            AND currentRunGM.transtype = 'N'                    -- Gerealiseerd (itt Gepland 'B')
+            AND currentRunGM.transsubtype = 'A'                 -- Spullen
+            AND currentRunGM.warehouse IN ('03', '16')          -- FO-48 Extend CD 04.345.682
+            AND currentRunGM.datum &gt;='%param_from_afldat%'      -- Filter for starting in Production
 
-					FROM (SELECT DISTINCT TOP  %param_number_of_records_per_run%            -- MAX num records: bkstnr: Receipt slips
-					selectGM.bkstnr
-					, selectGM.datum
-					, TOHead.ordernr
-					, TOHead.levwijze
-					, TOHead.afldat
-					, oht.[%param_order_Header_additionalfield_name%] as [initalPurchaseOrderNr]        -- %param_order_Header_additionalfield_name% : Field09
-					FROM [%abeisourcedb%].[dbo].[gbkmut] AS selectGM WITH (NOLOCK)
-					INNER JOIN [%abeisourcedb%].[dbo].[Items] AS selectIT WITH (NOLOCK)
-					ON selectIT.ItemCode = selectGM.artcode
-					AND selectGM.reknr = selectIT.GLAccountDistribution         -- Filter voorraad boekingen
-					INNER JOIN [%abeisourcedb%].[dbo].[orkrg] AS TOHead WITH (NOLOCK)
-					ON TOHead.ordernr = selectGM.bkstnr_sub
-					INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderHeader oht
-					ON oht.OrderNumber = TOHead.ordernr
-					LEFT JOIN [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
-					ON selectGM.bkstnr = cTOr.bkstnr
-					WHERE 1=1
-					-- Filter receipts in Warehouse 03
-					AND selectGM.transtype = 'N'                      -- Gerealiseerd (itt Gepland 'B')
-					AND selectGM.transsubtype = 'A'                   -- Spullen
-					AND selectGM.warehouse = '%param_default_warehouse%'                     -- Received in WareHouse 03  %param_default_warehouse%
-					AND selectGM.datum &gt;='%param_from_afldat%'         -- Filter for starting in Production
-
-					-- Filter Transport Orders
-					AND TOHead.ord_soort = 'B'                          -- Purchase Order
-					AND TOHead.selcode = 'TR'                           -- Marked selcode by Task01 Step 100  - %param_TransportOrder_SelectionCode%
-					AND oht.[%param_order_Header_additionalfield_name%] IS NOT NULL -- %param_order_Header_additionalfield_name%
-					--  AND TOHead.magcode = '%param_default_warehouse%'     -- Rotterdam WareHouse   Default Warehouse for Transport Orders: 03
-					-- NOT already in process
-					AND cTOr.ID IS NULL
-					ORDER BY selectGM.datum ASC
-					) as receipts
-					INNER JOIN [%abeisourcedb%].[dbo].[gbkmut] AS GM WITH (NOLOCK)
-					ON GM.bkstnr = receipts.bkstnr
-					INNER JOIN [%abeisourcedb%].[dbo].[Items] AS IT WITH (NOLOCK)
-					ON IT.ItemCode = GM.artcode
-					AND GM.reknr = IT.GLAccountDistribution         -- Filter voorraad boekingen
-					INNER JOIN [%abeisourcedb%].[dbo].[ItemAssortment] as ITG WITH (NOLOCK)
-					ON IT.Assortment = ITG.Assortment
-					INNER JOIN [%abeisourcedb%].[dbo].[orsrg] AS TOLine WITH (NOLOCK)
-					on TOLine.sysguid = GM.LinkedLine
-					INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderHeader oht
-					ON oht.OrderNumber = TOLine.ordernr
-					AND oht.[%param_order_Header_additionalfield_name%]  IS NOT NULL                     -- Field09
-					INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderLines olt WITH (NOLOCK)
-					ON olt.OrderNumber = TOLine.ordernr
-					AND olt.LineNumber = TOLine.regel
-					AND olt.[%param_order_Line_additionalfield_name%] IS NOT NULL                   -- Field09
-					INNER JOIN [%abeisourcedb%].[dbo].[orsrg] iPOline WITH (NOLOCK)
-					ON  LTRIM(RTRIM(STR(iPOline.ID))) = olt.[%param_order_Line_additionalfield_name%] COLLATE DATABASE_DEFAULT
-					--AND  iPOline.ordernr = cTOr.initalPurchaseOrderNr         -- double check
-					INNER JOIN [%abeisourcedb%].[dbo].[gbkmut] GMiPOreceive
-					ON GMiPOreceive.LinkedLine = iPOline.sysguid
-					AND GMiPOreceive.reknr = IT.GLAccountDistribution -- actual Inventory Line (as opposed to NOG/NSF)
-					--AND GMiPOreceive.bkstnr_sub = cTOr.initalPurchaseOrderNr  -- double check
-					--AND GMiPOreceive.artcode = cTOr.artcode                   -- double check
-					--AND GMiPOreceive.transtype = 'N'                          -- double check
-					--AND GMiPOreceive.transsubtype = 'A'                       -- double check
-					--AND GMiPOreceive.warehouse = '99'                         -- double check
-					OUTER APPLY (SELECT TOP 1
-					GMrecount.artcode,
-					GMrecount.datum,
-					GMrecount.aantal,
-					GMrecount.bdr_val
-					FROM [%abeisourcedb%].[dbo].[gbkmut] GMrecount
-					WHERE   GMrecount.artcode = GM.artcode
-					AND GMrecount.reknr = IT.GLAccountDistribution
-					AND GMrecount.transtype = 'N'
-					AND GMrecount.transsubtype = 'G'
-					AND GMrecount.warehouse = '99'
-					AND GMrecount.datum &gt;= GMiPOreceive.datum
-					AND GMrecount.datum &lt;= GM.datum
-					AND GMrecount.bdr_val &gt;= 0
-					ORDER BY GMrecount.ID DESC
-					) as GMartRecount
+            -- Filter Transport Orders
+            AND currentRunEgOH.ord_soort = 'B'                          -- Purchase Order
+            AND currentRunEgOH.selcode = 'TR'                           -- Marked selcode by Task01 Step 100  - %param_TransportOrder_SelectionCode%
+            AND currentRunEgOHa.[%param_order_Header_additionalfield_name%] IS NOT NULL -- %param_order_Header_additionalfield_name%
+            -- NOT already in process
+            AND cTOr.ID IS NULL
+        ORDER BY currentRunGM.datum ASC
+    ) as receipts
+INNER JOIN [%abeisourcedb%].[dbo].[gbkmut] AS GM WITH (NOLOCK)
+    ON GM.bkstnr = receipts.bkstnr
+INNER JOIN [%abeisourcedb%].[dbo].[Items] AS IT WITH (NOLOCK)
+    ON IT.ItemCode = GM.artcode
+    AND GM.reknr = IT.GLAccountDistribution         -- Filter voorraad boekingen
+INNER JOIN [%abeisourcedb%].[dbo].[ItemAssortment] as ITG WITH (NOLOCK)
+    ON IT.Assortment = ITG.Assortment
+INNER JOIN [%abeisourcedb%].[dbo].[orsrg] AS egOL WITH (NOLOCK)
+    on egOL.sysguid = GM.LinkedLine
+INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderHeader egOHa
+    ON egOHa.OrderNumber = egOL.ordernr
+    AND egOHa.[%param_order_Header_additionalfield_name%]  IS NOT NULL                     -- Field09
+INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderLines egOLa WITH (NOLOCK)
+    ON egOLa.OrderNumber = egOL.ordernr
+    AND egOLa.LineNumber = egOL.regel
+    AND egOLa.[%param_order_Line_additionalfield_name%] IS NOT NULL                   -- Field09
+INNER JOIN [%abeisourcedb%].[dbo].[orsrg] iPOegOL WITH (NOLOCK)
+    ON  LTRIM(RTRIM(STR(iPOegOL.ID))) = egOLa.[%param_order_Line_additionalfield_name%] COLLATE DATABASE_DEFAULT
+INNER JOIN [%abeisourcedb%].[dbo].[gbkmut] GMiPOreceive
+    ON GMiPOreceive.LinkedLine = iPOegOL.sysguid
+    AND GMiPOreceive.reknr = IT.GLAccountDistribution -- actual Inventory Line (as opposed to NOG/NSF)
+OUTER APPLY (SELECT TOP 1
+                GMrecount.artcode,
+                GMrecount.datum,
+                GMrecount.aantal,
+                GMrecount.bdr_val
+                FROM [%abeisourcedb%].[dbo].[gbkmut] GMrecount
+                WHERE   GMrecount.artcode = GM.artcode
+                    AND GMrecount.reknr = IT.GLAccountDistribution
+                    AND GMrecount.transtype = 'N'
+                    AND GMrecount.transsubtype = 'G'
+                    AND GMrecount.warehouse = receipts.magcode_FoB          -- FO-48 Extend CD 04.345.682
+                    AND GMrecount.datum &gt;= GMiPOreceive.datum
+                    AND GMrecount.datum &lt;= GM.datum
+                    AND GMrecount.bdr_val &gt;= 0
+                ORDER BY GMrecount.ID DESC
+) as GMartRecount
 
 
-					SELECT @numToProcess=@@ROWCOUNT
+SELECT @numToProcess=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Found: ' + CONVERT(varchar(10), @numToProcess)+ ' newly delivered created Transport Orders' )
-
-
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, iPOr.bkstnr
-					, iPOr.ordernr
-					, iPOr.orderLineID
-					, 'Receipt for created Transport Order detected.'
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as iPOr WITH (NOLOCK)
-					WHERE iPOr.rowstatus = 0 -- TODO
-					AND '%runid%' = iPOr.runid --Explicitely this run only
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>60</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>EG: Check for new TransportOrder Deliveries</stepname>
-			</step>
-			<step>
-				<id>27421</id>
-				<entity>-none-</entity>
-				<action>textline</action>
-				<source>0</source>
-				<target>0</target>
-				<datasource></datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>1</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>60</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>==       Get &amp; Check Data to Process      ==</stepname>
-			</step>
-			<step>
-				<id>27422</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>103</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'ABSC: Set Processing Status'
-					DECLARE @numProcessed int
+INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Found: ' + CONVERT(varchar(10), @numToProcess)+ ' newly delivered created Transport Orders' )
 
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Setting processing status (rowstatus = 1).')
+-- 'Transaction Log' for T-Shoot and insight in retries....
+INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+    , bkstnr
+    , ordernr
+    , orderLineID
+    , MESSAGE 
+    , [magcode_FoB] -- FO-48 Extend CD 04.345.682
+    , [magcode]       -- FO-48 Extend CD 04.345.682
+)
+SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+    , cTOr.bkstnr
+    , cTOr.ordernr
+    , cTOr.orderLineID
+    , 'Receipt for created Transport Order detected.'
+    , cTOr.[magcode_FoB]
+    , cTOr.[magcode]
+FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (NOLOCK)
+WHERE cTOr.rowstatus = 0 -- TODO
+    AND '%runid%' = cTOr.runid --Explicitely this run only
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>60</seqno><settings></settings><settingsxml /><stepname>EG: Check for new TransportOrder Deliveries</stepname></step><step><id>5426</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>60</seqno><settings></settings><settingsxml /><stepname>==       Get &amp; Check Data to Process      ==</stepname></step><step><id>5427</id><entity>-none-</entity><action>exec SQL</action><source>103</source><target>103</target><datasource>
+                    DECLARE @stepName [varchar](255) = 'ABSC: Set Processing Status'
+                    DECLARE @numProcessed int
 
-					UPDATE cTOr
-					SET rowstatus = 1
-					, retry_counter = 0    -- First Try
-					, runid = '%runid%'
-					, sysmodified = CURRENT_TIMESTAMP
-					--   SELECT *
-					FROM  [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (ROWLOCK, NOWAIT)
-					-- Ensure all Orderlines per PO-Receipt are selected
-					INNER JOIN (SELECT DISTINCT TOP %param_number_of_records_per_api_call%
-					bkstnr, datumOntvangst
-					FROM   [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] WITH (NOLOCK)
-					WHERE rowstatus = 0
-					ORDER BY datumOntvangst ASC
-					) as sel
-					ON cTOr.bkstnr = sel.bkstnr
+
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Setting processing status (rowstatus = 1).')
+
+                    UPDATE cTOr
+                    SET rowstatus = 1
+                    , retry_counter = 0    -- First Try
+                    , runid = '%runid%'
+                    , sysmodified = CURRENT_TIMESTAMP
+                    --   SELECT *
+                    FROM  [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (ROWLOCK, NOWAIT)
+                    -- Ensure all Orderlines per PO-Receipt are selected
+                    INNER JOIN (SELECT DISTINCT TOP %param_number_of_records_per_api_call%
+                    bkstnr, datumOntvangst
+                    FROM   [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] WITH (NOLOCK)
+                    WHERE rowstatus = 0
+                    ORDER BY datumOntvangst ASC
+                    ) as sel
+                    ON cTOr.bkstnr = sel.bkstnr
 
 
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Set: ' + CONVERT(varchar(10), @numProcessed)+ ' received order lines ready to process  (rowstatus = 1)' )
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Set: ' + CONVERT(varchar(10), @numProcessed)+ ' received order lines ready to process  (rowstatus = 1)' )
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, cTOr.orderLineID
-					, 'Start processing this Transport Order in this run'
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (NOLOCK)
-					WHERE cTOr.rowstatus = 1 -- Processing
-					AND '%runid%' = cTOr.runid --Explicitely this run only
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>90</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Set Processing Status (rowstatus = 1)</stepname>
-			</step>
-			<step>
-				<id>27423</id>
-				<entity>-none-</entity>
-				<action>process</action>
-				<source>103</source>
-				<target>80</target>
-				<datasource>
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , orderLineID
+                    , MESSAGE )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , cTOr.orderLineID
+                    , 'Start processing this Transport Order in this run'
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (NOLOCK)
+                    WHERE cTOr.rowstatus = 1 -- Processing
+                    AND '%runid%' = cTOr.runid --Explicitely this run only
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>90</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Set Processing Status (rowstatus = 1)</stepname></step><step><id>5428</id><entity>-none-</entity><action>process</action><source>103</source><target>80</target><datasource>
 					SELECT [ordernr]
 					FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]
 					WHERE 1=1
 					AND rowstatus = 1 -- being processed
 					--AND runId = '%runid%' -- NOT this run only
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>95</seqno>
-				<settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<jobparams />
-							<datacolumns />
-						</general>
-						<systemtarget>
-							<systemtarget_param2 />
-							<systemtarget_param3 />
-							<systemtarget_param4 />
-							<systemtarget_param5 />
-							<systemtarget_param6 />
-							<systemtarget_skiptoseqno />
-							<systemtarget_sleep>0</systemtarget_sleep>
-							<systemtarget_user />
-							<systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd>
-						</systemtarget>
-					</settings>
-				</settingsxml>
-				<stepname>Stop Job if nothing to do ------------------</stepname>
-			</step>
-			<step>
-				<id>27424</id>
-				<entity>-none-</entity>
-				<action>textline</action>
-				<source>0</source>
-				<target>0</target>
-				<datasource></datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>1</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>99</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>||                   DO ACTION                   ||</stepname>
-			</step>
-			<step>
-				<id>27425</id>
-				<entity>FinancialLine</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>101</target>
-				<datasource>
-					SELECT [bkstnr]  as HeaderID
-					, -1 * orderLineID as referenceKey
-					, [ordernr] as FreeField1
-					, CAST([orderLineID] as varchar(20)) as FreeField2
-					, GLAccountDistribution  as  reknr
-					, [artcode] --as itemcode
-					, -1 * [aantal] as [aantal] --quantity
-					, -1 *[aantal] * CurrentInventoryCostPrice as bedrag --amount
-					, [PackageDescription] as unitcode
-					, '99' as WareHouse
-					--,  'A01' as warehouselocation
-					, [datumOntvangst] as datum
-					, [ordernr] as OrderNumber -- List Transport Ordert Number as PO number for mutation. or prefer: [initalPurchaseOrderNr]
-					, 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland) or O Obligation (Verplichting))
-					, 'A' as TranssubType   -- A:   Receipt
-					, [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
-					[initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
-					as oms25 -- description
-					FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
-					WHERE cTOr.rowstatus = 1
-					AND createdBkstnr IS NULL
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>100</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey>referenceKey</referencekey>
-							<datacolumns>
-								<datacolumn>
-									<name>HeaderID</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>referenceKey</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField2</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>reknr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>artcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>aantal</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bedrag</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>unitcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>WareHouse</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>datum</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>OrderNumber</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>TransType</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>TranssubType</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>oms25</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>EG: Create Inventory Fin Mem Debet (Lines)</stepname>
-			</step>
-			<step>
-				<id>27426</id>
-				<entity>FinancialLine</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>101</target>
-				<datasource>
-					SELECT [bkstnr] as HeaderID
-					, orderLineID as referenceKey
-					, [ordernr] as FreeField1
-					, CAST([orderLineID] as varchar(20)) as FreeField2
-					, '%param_account_balance%' as reknr -- Not using GLAccountCost  FO (Addendum) 04.226.921
-					, [artcode] --as itemcode
-					, [aantal] as [aantal] --quantity
-					, [aantal] * CurrentInventoryCostPrice as bedrag --amount
-					, [PackageDescription] as unitcode
-					, '99' as WareHouse
-					--,  'A01' as warehouselocation
-					, [datumOntvangst] as datum
-					, [ordernr] as OrderNumber -- List Transport Ordert Number as PO number for mutation. or prefer: [initalPurchaseOrderNr]
-					, 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland) or O Obligation (Verplichting))
-					, 'A' as TranssubType   -- A:   Receipt
-					, [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
-					[initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
-					as oms25 -- description
-					FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
-					WHERE cTOr.rowstatus = 1
-					AND createdBkstnr IS NULL
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>100</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey>referenceKey</referencekey>
-							<datacolumns>
-								<datacolumn>
-									<name>HeaderID</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>referenceKey</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField2</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>reknr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>artcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>aantal</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bedrag</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>unitcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>WareHouse</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>datum</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>OrderNumber</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>TransType</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>TranssubType</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>oms25</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>EG: Create Inventory Fin Mem Credit Cost (Lines)</stepname>
-			</step>
-			<step>
-				<id>27427</id>
-				<entity>FinancialHeader</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>101</target>
-				<datasource>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>95</seqno><settings>uniquekey=;retryunique=0;sysaction=6;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><jobparams /><datacolumns /></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_param4 /><systemtarget_param5 /><systemtarget_param6 /><systemtarget_skiptoseqno /><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Stop Job if nothing to do ------------------</stepname></step><step><id>5429</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>99</seqno><settings></settings><settingsxml /><stepname>||                   DO ACTION                   ||</stepname></step><step><id>5430</id><entity>FinancialLine</entity><action>create</action><source>103</source><target>101</target><datasource>
+                    SELECT [bkstnr]  as HeaderID
+                    , -1 * orderLineID as referenceKey
+                    , [ordernr] as FreeField1
+                    , CAST([orderLineID] as varchar(20)) as FreeField2
+                    , GLAccountDistribution  as  reknr
+                    , [artcode] --as itemcode
+                    , -1 * [aantal] as [aantal] --quantity
+                    , -1 *[aantal] * CurrentInventoryCostPrice as bedrag --amount
+                    , [PackageDescription] as unitcode
+                    , cTOr.[magcode_FoB] as WareHouse -- FO-48 Extend CD 04.345.682
+                    --,  'A01' as warehouselocation
+                    , [datumOntvangst] as datum
+                    , [ordernr] as OrderNumber -- List Transport Ordert Number as PO number for mutation. or prefer: [initalPurchaseOrderNr]
+                    , 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland) or O Obligation (Verplichting))
+                    , 'A' as TranssubType   -- A:   Receipt
+                    , [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
+                    [initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
+                    as oms25 -- description
+                    FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
+                    WHERE cTOr.rowstatus = 1
+                    AND createdBkstnr IS NULL
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>100</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey>referenceKey</referencekey><datacolumns><datacolumn><name>HeaderID</name><type>String</type></datacolumn><datacolumn><name>referenceKey</name><type>Int32</type></datacolumn><datacolumn><name>FreeField1</name><type>String</type></datacolumn><datacolumn><name>FreeField2</name><type>String</type></datacolumn><datacolumn><name>reknr</name><type>String</type></datacolumn><datacolumn><name>artcode</name><type>String</type></datacolumn><datacolumn><name>aantal</name><type>Double</type></datacolumn><datacolumn><name>bedrag</name><type>Double</type></datacolumn><datacolumn><name>unitcode</name><type>String</type></datacolumn><datacolumn><name>WareHouse</name><type>String</type></datacolumn><datacolumn><name>datum</name><type>DateTime</type></datacolumn><datacolumn><name>OrderNumber</name><type>String</type></datacolumn><datacolumn><name>TransType</name><type>String</type></datacolumn><datacolumn><name>TranssubType</name><type>String</type></datacolumn><datacolumn><name>oms25</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>EG: Create Inventory Fin Mem Debet (Lines)</stepname></step><step><id>5431</id><entity>FinancialLine</entity><action>create</action><source>103</source><target>101</target><datasource>
+                    SELECT [bkstnr] as HeaderID
+                    , orderLineID as referenceKey
+                    , [ordernr] as FreeField1
+                    , CAST([orderLineID] as varchar(20)) as FreeField2
+                    , '%param_account_balance%' as reknr -- Not using GLAccountCost  FO (Addendum) 04.226.921
+                    , [artcode] --as itemcode
+                    , [aantal] as [aantal] --quantity
+                    , [aantal] * CurrentInventoryCostPrice as bedrag --amount
+                    , [PackageDescription] as unitcode
+                    , cTOr.[magcode_FoB] as WareHouse -- FO-48 Extend CD 04.345.682
+                    --,  'A01' as warehouselocation
+                    , [datumOntvangst] as datum
+                    , [ordernr] as OrderNumber -- List Transport Ordert Number as PO number for mutation. or prefer: [initalPurchaseOrderNr]
+                    , 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland) or O Obligation (Verplichting))
+                    , 'A' as TranssubType   -- A:   Receipt
+                    , [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
+                    [initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
+                    as oms25 -- description
+                    FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
+                    WHERE cTOr.rowstatus = 1
+                    AND createdBkstnr IS NULL
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>100</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey>referenceKey</referencekey><datacolumns><datacolumn><name>HeaderID</name><type>String</type></datacolumn><datacolumn><name>referenceKey</name><type>Int32</type></datacolumn><datacolumn><name>FreeField1</name><type>String</type></datacolumn><datacolumn><name>FreeField2</name><type>String</type></datacolumn><datacolumn><name>reknr</name><type>String</type></datacolumn><datacolumn><name>artcode</name><type>String</type></datacolumn><datacolumn><name>aantal</name><type>Double</type></datacolumn><datacolumn><name>bedrag</name><type>Double</type></datacolumn><datacolumn><name>unitcode</name><type>String</type></datacolumn><datacolumn><name>WareHouse</name><type>String</type></datacolumn><datacolumn><name>datum</name><type>DateTime</type></datacolumn><datacolumn><name>OrderNumber</name><type>String</type></datacolumn><datacolumn><name>TransType</name><type>String</type></datacolumn><datacolumn><name>TranssubType</name><type>String</type></datacolumn><datacolumn><name>oms25</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>EG: Create Inventory Fin Mem Credit Cost (Lines)</stepname></step><step><id>5432</id><entity>FinancialHeader</entity><action>create</action><source>103</source><target>101</target><datasource>
 					SELECT DISTINCT [bkstnr] as HeaderID
 					, '%param_inventory_journal%' as dagbknr --Journal -- TODO: Param
 					, cTO.crdnr
@@ -1111,475 +513,256 @@
 					ON cTO.ordernr = cTOr.initalPurchaseOrderNr
 					WHERE cTOr.rowstatus = 1
 					AND AmutakID IS NULL
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>100</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey>HeaderID</referencekey>
-							<datacolumns>
-								<datacolumn>
-									<name>HeaderID</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>dagbknr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>FreeField2</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>oms25</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>EG: Create Inventory Financial Memorial (Header)</stepname>
-			</step>
-			<step>
-				<id>27428</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>101</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'ABSC: Collect EG Create Inventory Change Results'
-					DECLARE @numProcessed int
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>100</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey>HeaderID</referencekey><datacolumns><datacolumn><name>HeaderID</name><type>String</type></datacolumn><datacolumn><name>dagbknr</name><type>String</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>FreeField1</name><type>String</type></datacolumn><datacolumn><name>FreeField2</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>oms25</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>EG: Create Inventory Financial Memorial (Header)</stepname></step><step><id>5433</id><entity>-none-</entity><action>exec SQL</action><source>101</source><target>103</target><datasource>
+                    DECLARE @stepName [varchar](255) = 'ABSC: Collect EG Create Inventory Change Results'
+                    DECLARE @numProcessed int
 
 
-					-- Check Financial Header Create
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Header Create.')
+                    -- Check Financial Header Create
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Header Create.')
 
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, MESSAGE
-					, [initalPurchaseOrderNr]
-					, [initalPurchaseOrderLineId] )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, CASE ISNULL(EntRH.rowstatus,-1)
-					WHEN 2 THEN 'Inventory Change Financial Header Created'
-					ELSE ISNULL(EntRH.errormessage, 'No result for Inventory Change Financial Header found')
-					END
-					, cTOr.[initalPurchaseOrderNr]
-					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno =  100 -- Create Inventory Change
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
-					ON 1=1
-					and EntRH.jobid =  %jobid%
-					and EntRH.jobstepid = EntJS.ID
-					and EntRH.runid = '%runid%'
-					and EntRH.Entity = 'FinancialHeader'
-					and EntRH.Action = 'create'
-					and EntRH.ReferenceValue =  cTOr.[bkstnr]
-					WHERE cTOr.rowstatus = 1 -- being processed
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , MESSAGE
+                    , [initalPurchaseOrderNr]
+                    , [initalPurchaseOrderLineId],
+                    , [magcode_FoB] -- FO-48 Extend CD 04.345.682
+                    , [magcode] -- FO-48 Extend CD 04.345.682
+                    )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , CASE ISNULL(EntRH.rowstatus,-1)
+                    WHEN 2 THEN 'Inventory Change Financial Header Created'
+                    ELSE ISNULL(EntRH.errormessage, 'No result for Inventory Change Financial Header found')
+                    END
+                    , cTOr.[initalPurchaseOrderNr]
+                    , cTOr.[initalPurchaseOrderLineId]
+                    , cTOr.[magcode_FoB] as WareHouse -- FO-48 Extend CD 04.345.682
+                    , cTOr.[magcode] as WareHouse -- FO-48 Extend CD 04.345.682
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno =  100 -- Create Inventory Change
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
+                    ON 1=1
+                    and EntRH.jobid =  %jobid%
+                    and EntRH.jobstepid = EntJS.ID
+                    and EntRH.runid = '%runid%'
+                    and EntRH.Entity = 'FinancialHeader'
+                    and EntRH.Action = 'create'
+                    and EntRH.ReferenceValue =  cTOr.[bkstnr]
+                    WHERE cTOr.rowstatus = 1 -- being processed
 
 
-					-- Check Financial Line Create
+                    -- Check Financial Line Create
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Line Create.')
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Line Create.')
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE
-					, [initalPurchaseOrderNr]
-					, [initalPurchaseOrderLineId] )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, cTOr.orderLineID
-					, CASE ISNULL(EntRL.rowstatus,-1)
-					WHEN 2 THEN 'Inventory Change Financial Line Create reports success for ' + EntRL.ReferenceValue
-					ELSE ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found for ' + EntRL.ReferenceValue ) END
-					, cTOr.[initalPurchaseOrderNr]
-					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
-					-- Results for lines
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno =  100 -- Create Inventory Change
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
-					ON 1=1
-					and EntRL.jobid =  %jobid%
-					and EntRL.jobstepid = EntJS.ID
-					and EntRL.runid = '%runid%'
-					and EntRL.Entity = 'FinancialLine'
-					and EntRL.Action = 'create'
-					and (EntRL.ReferenceValue =  cTOr.orderLineID OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
-					WHERE cTOr.rowstatus = 1 -- being processed
-
-
-					-- Update AmutakID for succesful headers
-
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Financial Header(s) Result.')
-
-					-- UPDATE Processing Params
-					UPDATE cTOr  SET
-					--SELECT
-					[sysmessage] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
-					THEN 'Inventory Updated. Amutak record(s) Created'
-					ELSE --ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found') + CHAR(13) + CHAR(10)  +
-					ISNULL(EntRH.errormessage, 'No result for Inventory Change Financial Header found')
-					END
-					, sysmodified = CURRENT_TIMESTAMP
-					, runid = '%runid%'
-					-- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
-					--    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                        THEN 2
-					--                    ELSE cTOr.rowstatus END -- unchanged
-					-- setting AmutakId as created Financial Header result success
-					, [AmutakID] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
-					THEN EntRH.NewKeyvalue
-					ELSE NULL END
-					--    , [createdBkstnr] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                        THEN ATK.bkstnr
-					--                        ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno =  100 -- Create Inventory Change
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
-					ON 1=1
-					and EntRH.jobid =  %jobid%
-					and EntRH.jobstepid = EntJS.ID
-					and EntRH.runid = '%runid%'
-					and EntRH.Entity = 'FinancialHeader'
-					and EntRH.Action = 'create'
-					and EntRH.ReferenceValue =  cTOr.[bkstnr]
-					--LEFT OUTER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
-					--ON 1=1
-					--and EntRL.jobid =  %jobid%
-					--and EntRL.jobstepid = EntJS.ID
-					--and EntRL.runid = '%runid%'
-					--and EntRL.Entity = 'FinancialLine'
-					--and EntRL.Action = 'create'
-					--and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
-					LEFT OUTER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
-					ON ATK.ID = EntRH.NewKeyvalue
-					WHERE cTOr.rowstatus = 1 -- being processed
-
-					SELECT @numProcessed=@@ROWCOUNT
-
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Inventory Change: Financial Header(s)' )
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , orderLineID
+                    , MESSAGE
+                    , [initalPurchaseOrderNr]
+                    , [initalPurchaseOrderLineId] 
+                                        , [magcode_FoB] -- FO-48 Extend CD 04.345.682
+                    , [magcode] -- FO-48 Extend CD 04.345.682
+                    )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , cTOr.orderLineID
+                    , CASE ISNULL(EntRL.rowstatus,-1)
+                    WHEN 2 THEN 'Inventory Change Financial Line Create reports success for ' + EntRL.ReferenceValue
+                    ELSE ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found for ' + EntRL.ReferenceValue ) END
+                    , cTOr.[initalPurchaseOrderNr]
+                    , cTOr.[initalPurchaseOrderLineId]
+                                        , cTOr.[magcode_FoB] as WareHouse -- FO-48 Extend CD 04.345.682
+                    , cTOr.[magcode] as WareHouse -- FO-48 Extend CD 04.345.682
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+                    -- Results for lines
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno =  100 -- Create Inventory Change
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
+                    ON 1=1
+                    and EntRL.jobid =  %jobid%
+                    and EntRL.jobstepid = EntJS.ID
+                    and EntRL.runid = '%runid%'
+                    and EntRL.Entity = 'FinancialLine'
+                    and EntRL.Action = 'create'
+                    and (EntRL.ReferenceValue =  cTOr.orderLineID OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
+                    WHERE cTOr.rowstatus = 1 -- being processed
 
 
-					-- Update createdBkstnr for succesful Lines
+                    -- Update AmutakID for succesful headers
+
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Financial Header(s) Result.')
+
+                    -- UPDATE Processing Params
+                    UPDATE cTOr  SET
+                    --SELECT
+                    [sysmessage] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN 'Inventory Updated. Amutak record(s) Created'
+                    ELSE --ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found') + CHAR(13) + CHAR(10)  +
+                    ISNULL(EntRH.errormessage, 'No result for Inventory Change Financial Header found')
+                    END
+                    , sysmodified = CURRENT_TIMESTAMP
+                    , runid = '%runid%'
+                    -- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
+                    --    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                        THEN 2
+                    --                    ELSE cTOr.rowstatus END -- unchanged
+                    -- setting AmutakId as created Financial Header result success
+                    , [AmutakID] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN EntRH.NewKeyvalue
+                    ELSE NULL END
+                    --    , [createdBkstnr] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                        THEN ATK.bkstnr
+                    --                        ELSE NULL END
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno =  100 -- Create Inventory Change
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
+                    ON 1=1
+                    and EntRH.jobid =  %jobid%
+                    and EntRH.jobstepid = EntJS.ID
+                    and EntRH.runid = '%runid%'
+                    and EntRH.Entity = 'FinancialHeader'
+                    and EntRH.Action = 'create'
+                    and EntRH.ReferenceValue =  cTOr.[bkstnr]
+                    --LEFT OUTER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
+                    --ON 1=1
+                    --and EntRL.jobid =  %jobid%
+                    --and EntRL.jobstepid = EntJS.ID
+                    --and EntRL.runid = '%runid%'
+                    --and EntRL.Entity = 'FinancialLine'
+                    --and EntRL.Action = 'create'
+                    --and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
+                    LEFT OUTER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
+                    ON ATK.ID = EntRH.NewKeyvalue
+                    WHERE cTOr.rowstatus = 1 -- being processed
+
+                    SELECT @numProcessed=@@ROWCOUNT
+
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Inventory Change: Financial Header(s)' )
 
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Financial Line(s) Result.')
+                    -- Update createdBkstnr for succesful Lines
 
-					-- UPDATE Processing Params
-					UPDATE cTOr  SET
-					--SELECT cTOr.orderLineID, EntRL.ReferenceValue, EntRL.RecordValue, ATS.*,
-					[sysmessage] = CASE WHEN ISNULL(EntRL.rowstatus,-1) = 2
-					THEN 'Inventory Updated. Amutak &amp; Amutas Records Created'
-					ELSE
-					CASE WHEN cTOr.sysmessage IS NULL --  + CHAR(13) + CHAR(10)  +
-					THEN ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found')
-					ELSE ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found') + CHAR(13) + CHAR(10)  + cTOr.sysmessage
-					END
-					END
-					, sysmodified = CURRENT_TIMESTAMP
-					, runid = '%runid%'
-					-- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
-					--    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                        THEN 2
-					--                    ELSE cTOr.rowstatus END -- unchanged
-					--    , [AmutakID] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                        THEN EntRH.NewKeyvalue
-					--                        ELSE NULL END
-					, [createdBkstnr] = CASE WHEN ISNULL(EntRL.rowstatus,-1) = 2
-					THEN ATK.bkstnr
-					ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno =  100 -- Create Inventory Change
-					--INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
-					--    ON 1=1
-					--        and EntRH.jobid =  %jobid%
-					--        and EntRH.jobstepid = EntJS.ID
-					--        and EntRH.runid = '%runid%'
-					--        and EntRH.Entity = 'FinancialHeader'
-					--        and EntRH.Action = 'create'
-					--        and EntRH.ReferenceValue =  cTOr.[bkstnr]
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
-					ON 1=1
-					and EntRL.jobid =  %jobid%
-					and EntRL.jobstepid = EntJS.ID
-					and EntRL.runid = '%runid%'
-					and EntRL.Entity = 'FinancialLine'
-					and EntRL.Action = 'create'
-					and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
-					INNER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
-					ON ATK.ID = cTOr.AmutakId  --EntRH.NewKeyvalue
-					INNER JOIN [%abeisourcedb%].dbo.amutas as ATS WITH (NOLOCK)
-					ON ATK.Bkjrcode = ATS.Bkjrcode
-					AND ATK.Periode = ATS.Periode
-					AND ATK.Dagbknr = ATS.Dagbknr
-					AND ATK.Volgnr5 = ATS.Volgnr5
-					AND ATS.FreeField1 = cTOr.ordernr
-					AND ATS.FreeField2 = cTOr.orderLineID
-					WHERE cTOr.rowstatus = 1 -- being processed
-					AND cTOr.[AmutakID] IS NOT NULL -- Header registered successfully
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Financial Line(s) Result.')
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Inventory Change  Financial Header &amp; Line(s)' )
+                    -- UPDATE Processing Params
+                    UPDATE cTOr  SET
+                    --SELECT cTOr.orderLineID, EntRL.ReferenceValue, EntRL.RecordValue, ATS.*,
+                    [sysmessage] = CASE WHEN ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN 'Inventory Updated. Amutak &amp; Amutas Records Created'
+                    ELSE
+                    CASE WHEN cTOr.sysmessage IS NULL --  + CHAR(13) + CHAR(10)  +
+                    THEN ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found')
+                    ELSE ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found') + CHAR(13) + CHAR(10)  + cTOr.sysmessage
+                    END
+                    END
+                    , sysmodified = CURRENT_TIMESTAMP
+                    , runid = '%runid%'
+                    -- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
+                    --    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                        THEN 2
+                    --                    ELSE cTOr.rowstatus END -- unchanged
+                    --    , [AmutakID] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                        THEN EntRH.NewKeyvalue
+                    --                        ELSE NULL END
+                    , [createdBkstnr] = CASE WHEN ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN ATK.bkstnr
+                    ELSE NULL END
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno =  100 -- Create Inventory Change
+                    --INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
+                    --    ON 1=1
+                    --        and EntRH.jobid =  %jobid%
+                    --        and EntRH.jobstepid = EntJS.ID
+                    --        and EntRH.runid = '%runid%'
+                    --        and EntRH.Entity = 'FinancialHeader'
+                    --        and EntRH.Action = 'create'
+                    --        and EntRH.ReferenceValue =  cTOr.[bkstnr]
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
+                    ON 1=1
+                    and EntRL.jobid =  %jobid%
+                    and EntRL.jobstepid = EntJS.ID
+                    and EntRL.runid = '%runid%'
+                    and EntRL.Entity = 'FinancialLine'
+                    and EntRL.Action = 'create'
+                    and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
+                    INNER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
+                    ON ATK.ID = cTOr.AmutakId  --EntRH.NewKeyvalue
+                    INNER JOIN [%abeisourcedb%].dbo.amutas as ATS WITH (NOLOCK)
+                    ON ATK.Bkjrcode = ATS.Bkjrcode
+                    AND ATK.Periode = ATS.Periode
+                    AND ATK.Dagbknr = ATS.Dagbknr
+                    AND ATK.Volgnr5 = ATS.Volgnr5
+                    AND ATS.FreeField1 = cTOr.ordernr
+                    AND ATS.FreeField2 = cTOr.orderLineID
+                    WHERE cTOr.rowstatus = 1 -- being processed
+                    AND cTOr.[AmutakID] IS NOT NULL -- Header registered successfully
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>110</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Collect EG Create Fin Mem Results for step 100</stepname>
-			</step>
-			<step>
-				<id>27429</id>
-				<entity>FinancialLine</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>101</target>
-				<datasource>
-					SELECT 'PI'+ [bkstnr] as HeaderID
-					--, orderLineID as referenceKey
-					--    , iPO.crdnr as crdnr
-					, lines.reknr as reknr -- Not using GLAccountCost  FO (Addendum) 04.226.921
-					--    , '4150' as reknr --for test
-					, lines.[artcode] --as itemcode
-					, lines.[aantal] as [aantal] --quantity
-					, lines.bedrag as bedrag --amount
-					, cTOr.ordernr as OrderNumber
-					, cTO.crdnr
-					--, LTRIM(RTRIM(cTO.crdnr)) as crdnr
-					--    , cTOr.[ordernr] as FreeField1
-					--, cTOr.[orderLineID] as FreeField2
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					--    , [PackageDescription] as unitcode
-					, '03' as WareHouse
-					--,  'A01' as warehouselocation
-					, [datumOntvangst] as datum
-					--    , [initalPurchaseOrderNr] as OrderNumber -- List initial Purchase Ordert Number as PO number for mutation.
-					--    , 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland ) or O Obligation (Verplichting))
-					--    , 'T' as TranssubType --  T: Purchase invoice
-					, [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
-					[initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
-					as oms25 -- description
-					FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
-					INNER JOIN [%abeitargetdb%].[dbo].[orkrg] AS cTO WITH (NOLOCK)
-					ON cTO.ordernr = cTOr.ordernr
-					-- Inkoopprijs is hier op 0 gezet
-					CROSS APPLY (VALUES(      1, '%param_account_TBReceived%'       ,[artcode], [aantal]   , [aantal] * CurrentInventoryCostPrice      , 'd')
-					--,(2, '%param_inventory_journal_account%',[artcode], [aantal]       ,0                                          , 'c')
-					-- lINE 3 WILL BE CREATED BY eXACT IF THERE IS A PRICE DIFFERENCE ABOVE
-					--,(3, LTRIM(RTRIM(cTOr.GLPriceDifference)),NULL, 0       ,([aantal] * CurrentInventoryCostPrice)-0   , 'c')
-					-- ,(4, LTRIM(RTRIM(cTOr.GLPriceDifference)),NULL, 0  ,-1* ([aantal] * CurrentInventoryCostPrice)-0   , 'd') -- cancels 3
-					,(5,'%param_account_balance%'           , NULL, 0    ,(-1 * [aantal] * CurrentInventoryCostPrice)-0   , 'c'))
-					as lines(l, reknr, artcode, aantal, bedrag, type)
-					WHERE cTOr.rowstatus = 1
-					AND PurchaseInvoice_HeaderEntry IS NULL
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>120</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>HeaderID</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>reknr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bedrag</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>OrderNumber</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>WareHouse</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>datum</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>oms25</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>EG: Create Purchase Invoice (Lines)</stepname>
-			</step>
-			<step>
-				<id>27430</id>
-				<entity>FinancialHeader</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>101</target>
-				<datasource>
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Inventory Change  Financial Header &amp; Line(s)' )
+
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>110</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Collect EG Create Fin Mem Results for step 100</stepname></step><step><id>5434</id><entity>FinancialLine</entity><action>create</action><source>103</source><target>101</target><datasource>
+                    SELECT 'PI'+ [bkstnr] as HeaderID
+                    --, orderLineID as referenceKey
+                    --    , iPO.crdnr as crdnr
+                    , lines.reknr as reknr -- Not using GLAccountCost  FO (Addendum) 04.226.921
+                    --    , '4150' as reknr --for test
+                    , lines.[artcode] --as itemcode
+                    , lines.[aantal] as [aantal] --quantity
+                    , lines.bedrag as bedrag --amount
+                    , cTOr.ordernr as OrderNumber
+                    , egOH.crdnr
+                    --, LTRIM(RTRIM(egOH.crdnr)) as crdnr
+                    --    , cTOr.[ordernr] as FreeField1
+                    --, cTOr.[orderLineID] as FreeField2
+
+                    --    , [PackageDescription] as unitcode
+                    , cTOr.[magcode] as WareHouse
+                    --,  'A01' as warehouselocation
+                    , [datumOntvangst] as datum
+                    --    , [initalPurchaseOrderNr] as OrderNumber -- List initial Purchase Ordert Number as PO number for mutation.
+                    --    , 'N' as TransType      -- N: Normal (as opposed to B Budget (gepland ) or O Obligation (Verplichting))
+                    --    , 'T' as TranssubType --  T: Purchase invoice
+                    , [bkstnr] + ', ' + cTOr.[ordernr] + ', ' + CAST([orderLineID] as varchar(20)) + ', ' +
+                    [initalPurchaseOrderNr] + ', ' + CAST([initalPurchaseOrderLineId] as varchar(20))
+                    as oms25 -- description
+                    FROM [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
+                    INNER JOIN [%abeitargetdb%].[dbo].[orkrg] AS egOH WITH (NOLOCK)
+                    ON egOH.ordernr = cTOr.ordernr
+                    -- Inkoopprijs is hier op 0 gezet
+                    CROSS APPLY (VALUES(      1, '%param_account_TBReceived%'       ,[artcode], [aantal]   , [aantal] * CurrentInventoryCostPrice      , 'd')
+                    --,(2, '%param_inventory_journal_account%',[artcode], [aantal]       ,0                                          , 'c')
+                    -- lINE 3 WILL BE CREATED BY eXACT IF THERE IS A PRICE DIFFERENCE ABOVE
+                    --,(3, LTRIM(RTRIM(cTOr.GLPriceDifference)),NULL, 0       ,([aantal] * CurrentInventoryCostPrice)-0   , 'c')
+                    -- ,(4, LTRIM(RTRIM(cTOr.GLPriceDifference)),NULL, 0  ,-1* ([aantal] * CurrentInventoryCostPrice)-0   , 'd') -- cancels 3
+                    ,(5,'%param_account_balance%'           , NULL, 0    ,(-1 * [aantal] * CurrentInventoryCostPrice)-0   , 'c'))
+                    as lines(l, reknr, artcode, aantal, bedrag, type)
+                    WHERE cTOr.rowstatus = 1
+                    AND PurchaseInvoice_HeaderEntry IS NULL
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>120</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>HeaderID</name><type>String</type></datacolumn><datacolumn><name>reknr</name><type>String</type></datacolumn><datacolumn><name>bedrag</name><type>Double</type></datacolumn><datacolumn><name>OrderNumber</name><type>String</type></datacolumn><datacolumn><name>WareHouse</name><type>String</type></datacolumn><datacolumn><name>datum</name><type>DateTime</type></datacolumn><datacolumn><name>oms25</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>EG: Create Purchase Invoice (Lines)</stepname></step><step><id>5435</id><entity>FinancialHeader</entity><action>create</action><source>103</source><target>101</target><datasource>
 					SELECT DISTINCT 'PI'+[bkstnr] as HeaderID
 					, '%param_purchase_journal%' as dagbknr --Journal -- TODO: Param
 					--, GETDATE() as afldat
@@ -1602,1033 +785,320 @@
 					WHERE cTOr.rowstatus = 1
 					AND PurchaseInvoice_HeaderEntry IS NULL
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>120</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey>HeaderID</referencekey>
-							<datacolumns>
-								<datacolumn>
-									<name>HeaderID</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>dagbknr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>docNumber</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>oms25</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>EG: Create Purchase Invoice (Header)</stepname>
-			</step>
-			<step>
-				<id>27431</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>101</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'ABSC: Collect EG Create Purchase Invoice Results'
-					DECLARE @numProcessed int
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>120</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey>HeaderID</referencekey><datacolumns><datacolumn><name>HeaderID</name><type>String</type></datacolumn><datacolumn><name>dagbknr</name><type>String</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>docNumber</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>oms25</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>EG: Create Purchase Invoice (Header)</stepname></step><step><id>5436</id><entity>-none-</entity><action>exec SQL</action><source>101</source><target>103</target><datasource>
+                    DECLARE @stepName [varchar](255) = 'ABSC: Collect EG Create Purchase Invoice Results'
+                    DECLARE @numProcessed int
 
 
-					-- Check Financial Header Create
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Header Create.')
+                    -- Check Financial Header Create
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Header Create.')
 
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, MESSAGE
-					, [initalPurchaseOrderNr]
-					, [initalPurchaseOrderLineId] )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, CASE ISNULL(EntRH.rowstatus,-1)
-					WHEN 2 THEN 'Financial Header Purchase Invoice Created'
-					ELSE ISNULL(EntRH.errormessage, 'No result for Financial Header Purchase Invoice found')
-					END
-					, cTOr.[initalPurchaseOrderNr]
-					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno = 120  -- Create Purchase Invoice
-					LEFT JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
-					ON 1=1
-					and EntRH.jobid =  %jobid%
-					and EntRH.jobstepid = EntJS.ID
-					and EntRH.runid = '%runid%'
-					and EntRH.Entity = 'FinancialHeader'
-					and EntRH.Action = 'create'
-					and EntRH.ReferenceValue =  cTOr.[bkstnr]
-					WHERE cTOr.rowstatus = 1 -- being processed
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , MESSAGE
+                    , [initalPurchaseOrderNr]
+                    , [initalPurchaseOrderLineId]
+                    , [magcode_FoB]
+                    , [magcode]
+                    )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , CASE ISNULL(EntRH.rowstatus,-1)
+                    WHEN 2 THEN 'Financial Header Purchase Invoice Created'
+                    ELSE ISNULL(EntRH.errormessage, 'No result for Financial Header Purchase Invoice found')
+                    END
+                    , cTOr.[initalPurchaseOrderNr]
+                    , cTOr.[initalPurchaseOrderLineId]
+                    , cTOr.[magcode_FoB]
+                    , cTOr.[magcode]
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno = 120  -- Create Purchase Invoice
+                    LEFT JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
+                    ON 1=1
+                    and EntRH.jobid =  %jobid%
+                    and EntRH.jobstepid = EntJS.ID
+                    and EntRH.runid = '%runid%'
+                    and EntRH.Entity = 'FinancialHeader'
+                    and EntRH.Action = 'create'
+                    and EntRH.ReferenceValue =  cTOr.[bkstnr]
+                    WHERE cTOr.rowstatus = 1 -- being processed
 
-					/*
-					-- Check Financial Line Create
+                    /*
+                    -- Check Financial Line Create
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Line Create.')
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Financial Line Create.')
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE
-					, [initalPurchaseOrderNr]
-					, [initalPurchaseOrderLineId] )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, cTOr.orderLineID
-					, CASE ISNULL(EntRL.rowstatus,-1)
-					WHEN 2 THEN 'Financial Line Purchase Invoice Create reports success for ' + EntRL.ReferenceValue
-					ELSE ISNULL(EntRL.errormessage, 'No result for Financial Line Purchase Invoice found for ' + EntRL.ReferenceValue ) END
-					, cTOr.[initalPurchaseOrderNr]
-					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
-					-- Results for lines
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno = 120  -- Create Purchase Invoice
-					LEFT JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
-					ON 1=1
-					and EntRL.jobid =  %jobid%
-					and EntRL.jobstepid = EntJS.ID
-					and EntRL.runid = '%runid%'
-					and EntRL.Entity = 'FinancialLine'
-					and EntRL.Action = 'create'
-					and (EntRL.ReferenceValue =  cTOr.orderLineID OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , orderLineID
+                    , MESSAGE
+                    , [initalPurchaseOrderNr]
+                    , [initalPurchaseOrderLineId] )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , cTOr.orderLineID
+                    , CASE ISNULL(EntRL.rowstatus,-1)
+                    WHEN 2 THEN 'Financial Line Purchase Invoice Create reports success for ' + EntRL.ReferenceValue
+                    ELSE ISNULL(EntRL.errormessage, 'No result for Financial Line Purchase Invoice found for ' + EntRL.ReferenceValue ) END
+                    , cTOr.[initalPurchaseOrderNr]
+                    , cTOr.[initalPurchaseOrderLineId]
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+                    -- Results for lines
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno = 120  -- Create Purchase Invoice
+                    LEFT JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
+                    ON 1=1
+                    and EntRL.jobid =  %jobid%
+                    and EntRL.jobstepid = EntJS.ID
+                    and EntRL.runid = '%runid%'
+                    and EntRL.Entity = 'FinancialLine'
+                    and EntRL.Action = 'create'
+                    and (EntRL.ReferenceValue =  cTOr.orderLineID OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
 
-					WHERE cTOr.rowstatus = 1 -- being processed
-					*/
+                    WHERE cTOr.rowstatus = 1 -- being processed
+                    */
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Purchase Invoice Header &amp; Line(s)  Result.')
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Register Purchase Invoice Header &amp; Line(s)  Result.')
 
-					-- UPDATE Processing Params
-					UPDATE cTOr  SET
-					--SELECT *,
-					[sysmessage] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 -- AND ISNULL(EntRL.rowstatus,-1) = 2
-					THEN 'Purchase Invoice Created. ABEI ENtity Result Success.'
-					ELSE --ISNULL(EntRL.errormessage, 'No result for Purchase Invoice Line found') + CHAR(13) + CHAR(10)  +
-					ISNULL(EntRH.errormessage, 'No result for Purchase Invoice Header found')
-					END
-					, sysmodified = CURRENT_TIMESTAMP
-					, runid = '%runid%'
-					-- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
-					--    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                    THEN 2
-					--                ELSE cTOr.rowstatus END -- unchanged
-					--  , [PurchaseInvoice_LineEntry] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
-					--                    THEN EntRL.NewKeyvalue
-					--                    ELSE NULL END
-					, [PurchaseInvoice_HeaderEntry] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
-					THEN EntRH.NewKeyvalue
-					ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
-					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS
-					ON EntJS.jobid = %jobid%
-					AND EntJS.seqno = 120  -- Create Purchase Invoice
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
-					ON 1=1
-					and EntRH.jobid =  %jobid%
-					and EntRH.jobstepid = EntJS.ID
-					and EntRH.runid = '%runid%'
-					and EntRH.Entity = 'FinancialHeader'
-					and EntRH.Action = 'create'
-					and EntRH.ReferenceValue =  'PI'+ cTOr.[bkstnr] --headerID as referenceValue
-					/*
-					INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
-					ON 1=1
-					and EntRL.jobid =  %jobid%
-					and EntRL.jobstepid = EntJS.ID
-					and EntRL.runid = '%runid%'
-					and EntRL.Entity = 'FinancialLine'
-					and EntRL.Action = 'create'
-					and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
-					-- NO Amutak for Purchase Invoice
-					--LEFT OUTER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
-					--ON ATK.ID = EntRH.NewKeyvalue
-					*/
-					WHERE cTOr.rowstatus = 1 -- being processed
+                    -- UPDATE Processing Params
+                    UPDATE cTOr  SET
+                    --SELECT *,
+                    [sysmessage] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 -- AND ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN 'Purchase Invoice Created. ABEI ENtity Result Success.'
+                    ELSE --ISNULL(EntRL.errormessage, 'No result for Purchase Invoice Line found') + CHAR(13) + CHAR(10)  +
+                    ISNULL(EntRH.errormessage, 'No result for Purchase Invoice Header found')
+                    END
+                    , sysmodified = CURRENT_TIMESTAMP
+                    , runid = '%runid%'
+                    -- setting rowstatus 2 delegated to step 190: Set Success &amp; Check for retry
+                    --    , rowstatus = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                    THEN 2
+                    --                ELSE cTOr.rowstatus END -- unchanged
+                    --  , [PurchaseInvoice_LineEntry] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
+                    --                    THEN EntRL.NewKeyvalue
+                    --                    ELSE NULL END
+                    , [PurchaseInvoice_HeaderEntry] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
+                    THEN EntRH.NewKeyvalue
+                    ELSE NULL END
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS
+                    ON EntJS.jobid = %jobid%
+                    AND EntJS.seqno = 120  -- Create Purchase Invoice
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRH with (nolock)
+                    ON 1=1
+                    and EntRH.jobid =  %jobid%
+                    and EntRH.jobstepid = EntJS.ID
+                    and EntRH.runid = '%runid%'
+                    and EntRH.Entity = 'FinancialHeader'
+                    and EntRH.Action = 'create'
+                    and EntRH.ReferenceValue =  'PI'+ cTOr.[bkstnr] --headerID as referenceValue
+                    /*
+                    INNER JOIN [%abeidb%].dbo._AB_Entity_results EntRL with (nolock)
+                    ON 1=1
+                    and EntRL.jobid =  %jobid%
+                    and EntRL.jobstepid = EntJS.ID
+                    and EntRL.runid = '%runid%'
+                    and EntRL.Entity = 'FinancialLine'
+                    and EntRL.Action = 'create'
+                    and (EntRL.ReferenceValue =  cTOr.orderLineID) -- OR EntRL.ReferenceValue =  -1 * cTOr.orderLineID)
+                    -- NO Amutak for Purchase Invoice
+                    --LEFT OUTER JOIN [%abeisourcedb%].dbo.amutak as ATK WITH (NOLOCK)
+                    --ON ATK.ID = EntRH.NewKeyvalue
+                    */
+                    WHERE cTOr.rowstatus = 1 -- being processed
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Purchase Invoice Financial Header &amp; Line(s)' )
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Registered: ' + CONVERT(varchar(10), @numProcessed)+ 'Purchase Invoice Financial Header &amp; Line(s)' )
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>130</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Collect EG Create Pur Inv Results for step 120</stepname>
-			</step>
-			<step>
-				<id>27432</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>0</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'ABSC: Set success &amp; Count Retry'
-					DECLARE @numProcessed int
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>130</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Collect EG Create Pur Inv Results for step 120</stepname></step><step><id>5437</id><entity>-none-</entity><action>exec SQL</action><source>0</source><target>103</target><datasource>
+                    DECLARE @stepName [varchar](255) = 'ABSC: Set success &amp; Count Retry'
+                    DECLARE @numProcessed int
 
-					-- Check Complete &amp; SET Rowstatus 2
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Check for success.')
+                    -- Check Complete &amp; SET Rowstatus 2
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Check for success.')
 
-					UPDATE cTOr  SET
-					--SELECT *,
-					[retry_counter] = cTOr.[retry_counter] + 1
-					, [sysmessage] =
-					CASE WHEN cTOr.[sysmessage]  IS NULL
-					THEN 'Financial Memorial (or GbkMut) NOT Listed'
-					ELSE cTOr.[sysmessage]  + CHAR(13) + CHAR(10) + 'Financial Memorial (or GbkMut) NOT Listed'
-					END
-					, sysmodified = CURRENT_TIMESTAMP
-					, runid = '%runid%'
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
-					WHERE cTOr.rowstatus = 1 -- being processed
-					AND (cTOr.AmutakID IS NULL -- Financial Memorial has NOT  been listed
-					OR cTOr.[createdBkstnr] IS NULL -- Financial Memorial GbkMut has NOT been listed
-					)
+                    UPDATE cTOr  SET
+                    --SELECT *,
+                    [retry_counter] = cTOr.[retry_counter] + 1
+                    , [sysmessage] =
+                    CASE WHEN cTOr.[sysmessage]  IS NULL
+                    THEN 'Financial Memorial (or GbkMut) NOT Listed'
+                    ELSE cTOr.[sysmessage]  + CHAR(13) + CHAR(10) + 'Financial Memorial (or GbkMut) NOT Listed'
+                    END
+                    , sysmodified = CURRENT_TIMESTAMP
+                    , runid = '%runid%'
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
+                    WHERE cTOr.rowstatus = 1 -- being processed
+                    AND (cTOr.AmutakID IS NULL -- Financial Memorial has NOT  been listed
+                    OR cTOr.[createdBkstnr] IS NULL -- Financial Memorial GbkMut has NOT been listed
+                    )
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, 'Updated: ' + CONVERT(varchar(10), @numProcessed)+ ' Transport OrderLines (including Orders) as successfully processed' )
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , 'Updated: ' + CONVERT(varchar(10), @numProcessed)+ ' Transport OrderLines (including Orders) as successfully processed' )
 
 
-					-- Not Yet succeeded
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Stage retry for unsuccesful (yet).')
+                    -- Not Yet succeeded
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Stage retry for unsuccesful (yet).')
 
-					UPDATE cTOr  SET
-					--SELECT *,
-					rowstatus = 2
-					, [sysmessage] =
-					CASE WHEN cTOr.[sysmessage]  IS NULL
-					THEN 'Purchase Invoice Created'
-					ELSE cTOr.[sysmessage]  + CHAR(13) + CHAR(10) + 'Purchase Invoice Created'
-					END
-					, sysmodified = CURRENT_TIMESTAMP
-					, runid = '%runid%'
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
-					WHERE cTOr.rowstatus = 1 -- being processed
-					AND cTOr.AmutakID IS NOT NULL -- Financial Memorial has been listed
-					AND cTOr.[createdBkstnr] IS NOT NULL -- Financial Memorial GbkMut has been listed
-					--AND cTOr.PurchaseInvoice_LineEntry IS NOT NULL -- Purchase Invoice has been listed
-					AND cTOr.[PurchaseInvoice_HeaderEntry] IS NOT NULL -- Purchase Invoice GbkMut has been listed
+                    UPDATE cTOr  SET
+                    --SELECT *,
+                    rowstatus = 2
+                    , [sysmessage] =
+                    CASE WHEN cTOr.[sysmessage]  IS NULL
+                    THEN 'Purchase Invoice Created'
+                    ELSE cTOr.[sysmessage]  + CHAR(13) + CHAR(10) + 'Purchase Invoice Created'
+                    END
+                    , sysmodified = CURRENT_TIMESTAMP
+                    , runid = '%runid%'
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
+                    WHERE cTOr.rowstatus = 1 -- being processed
+                    AND cTOr.AmutakID IS NOT NULL -- Financial Memorial has been listed
+                    AND cTOr.[createdBkstnr] IS NOT NULL -- Financial Memorial GbkMut has been listed
+                    --AND cTOr.PurchaseInvoice_LineEntry IS NOT NULL -- Purchase Invoice has been listed
+                    AND cTOr.[PurchaseInvoice_HeaderEntry] IS NOT NULL -- Purchase Invoice GbkMut has been listed
 
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, 'Updated: ' + CONVERT(varchar(10), @numProcessed)+ ' Transport OrderLines (including Orders) for retry' )
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , 'Updated: ' + CONVERT(varchar(10), @numProcessed)+ ' Transport OrderLines (including Orders) for retry' )
 
 
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, cTOr.orderLineID
-					, 'Not yet succeeded. Increment retry to ' + STR(cTOr.retry_counter)
-					FROM  [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr  WITH (NOLOCK)
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , orderLineID
+                    , MESSAGE
+                    , [magcode_FoB]
+                    , [magcode]
+                    )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , cTOr.orderLineID
+                    , 'Not yet succeeded. Increment retry to ' + STR(cTOr.retry_counter)
+                    , cTOr.[magcode_FoB]
+                    , cTOr.[magcode]
+                    FROM  [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr  WITH (NOLOCK)
 
-					WHERE cTOr.rowstatus = 1 -- being processed
-					AND (cTOr.AmutakID IS NULL -- Financial Memorial has NOT  been listed
-					OR cTOr.[createdBkstnr] IS NULL -- Financial Memorial GbkMut has NOT been listed
-					)
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>190</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Set success (rowstatus 2) &amp; Count Retry (retry+1)</stepname>
-			</step>
-			<step>
-				<id>27433</id>
-				<entity>-none-</entity>
-				<action>textline</action>
-				<source>0</source>
-				<target>0</target>
-				<datasource></datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>1</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>200</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>==                FAIL Handling                  ==</stepname>
-			</step>
-			<step>
-				<id>27434</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>0</source>
-				<target>103</target>
-				<datasource>
-					DECLARE @stepName [varchar](255) = 'ABSC: Set Fail on too many tries'
-					DECLARE @numProcessed int
+                    WHERE cTOr.rowstatus = 1 -- being processed
+                    AND (cTOr.AmutakID IS NULL -- Financial Memorial has NOT  been listed
+                    OR cTOr.[createdBkstnr] IS NULL -- Financial Memorial GbkMut has NOT been listed
+                    )
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>190</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Set success (rowstatus 2) &amp; Count Retry (retry+1)</stepname></step><step><id>5438</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>200</seqno><settings></settings><settingsxml /><stepname>==                FAIL Handling                  ==</stepname></step><step><id>5439</id><entity>-none-</entity><action>exec SQL</action><source>0</source><target>103</target><datasource>
+                    DECLARE @stepName [varchar](255) = 'ABSC: Set Fail on too many tries'
+                    DECLARE @numProcessed int
 
-					-- Check Order Creation
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Failing after  %param_max_retry_counter% retries.')
+                    -- Check Order Creation
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Failing after  %param_max_retry_counter% retries.')
 
-					-- 'Transaction Log' for T-Shoot and insight in retries....
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
-					, bkstnr
-					, ordernr
-					, orderLineID
-					, MESSAGE )
-					SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
-					, cTOr.bkstnr
-					, cTOr.ordernr
-					, cTOr.orderLineID
-					, 'FAILED to process Transport Order. Giving up. Setting rowstatus =-1. Too many retries: ' + STR(cTOr.retry_counter)
-					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr  WITH (NOLOCK)
-					WHERE cTOr.rowstatus = 1
-					AND cTOr.retry_counter &gt; %param_max_retry_counter%
+                    -- 'Transaction Log' for T-Shoot and insight in retries....
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT
+                    , bkstnr
+                    , ordernr
+                    , orderLineID
+                    , MESSAGE
+                    , [magcode_FoB]
+                    , [magcode]
+                    )
+                    SELECT %param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName
+                    , cTOr.bkstnr
+                    , cTOr.ordernr
+                    , cTOr.orderLineID
+                    , 'FAILED to process Transport Order. Giving up. Setting rowstatus =-1. Too many retries: ' + STR(cTOr.retry_counter)
+                    , cTOr.[magcode_FoB]
+                    , cTOr.[magcode]
+                    FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr  WITH (NOLOCK)
+                    WHERE cTOr.rowstatus = 1
+                    AND cTOr.retry_counter &gt; %param_max_retry_counter%
 
-					UPDATE cTOr
-					SET rowstatus = -1
-					, [sysmessage] = CASE WHEN cTOr.[sysmessage]  IS NULL
-					THEN 'Too many Retries'
-					ELSE 'Too many Retries' + CHAR(13) + CHAR(10)
-					+ cTOr.[sysmessage]
-					END
-					, runid = '%runid%' -- For later messaging
-					--   SELECT *
-					FROM  [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
-					WHERE cTOr.rowstatus = 1
-					AND cTOr.retry_counter &gt; %param_max_retry_counter%
+                    UPDATE cTOr
+                    SET rowstatus = -1
+                    , [sysmessage] = CASE WHEN cTOr.[sysmessage]  IS NULL
+                    THEN 'Too many Retries'
+                    ELSE 'Too many Retries' + CHAR(13) + CHAR(10)
+                    + cTOr.[sysmessage]
+                    END
+                    , runid = '%runid%' -- For later messaging
+                    --   SELECT *
+                    FROM  [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (ROWLOCK, NOWAIT)
+                    WHERE cTOr.rowstatus = 1
+                    AND cTOr.retry_counter &gt; %param_max_retry_counter%
 
-					SELECT @numProcessed=@@ROWCOUNT
+                    SELECT @numProcessed=@@ROWCOUNT
 
-					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Failed: ' + CONVERT(varchar(10), @numProcessed)+ ' Financial Memorials' )
+                    INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
+                    VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Failed: ' + CONVERT(varchar(10), @numProcessed)+ ' Financial Memorials' )
 
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>200</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Set Fail on too many tries (rowstatus = -1)</stepname>
-			</step>
-			<step>
-				<id>27435</id>
-				<entity>-none-</entity>
-				<action>create</action>
-				<source>103</source>
-				<target>6</target>
-				<datasource>
-					SELECT
-					'ABEI Encountered difficulties creating Transport Orders in Job %jobid%' as querySubject
-					, [Id]
-					,[ExactDbNum]
-					,[syscreated]
-					,[sysmodified]
-					,[runid]
-					,[rowstatus]
-					,[sysmessage]
-					,[retry_counter]
-					,[bkstnr]
-					,[artcode]
-					,[aantal]
-					,FORMAT( [datumOntvangst], 'd', 'nl-NL') as [datumOntvangst]
-					,[orderLineID]
-					,[ordernr]
-					,[levwijze]
-					,FORMAT( [planned_deliveryDate], 'd', 'nl-NL') as [planned_deliveryDate]
-					,[PackageDescription]
-					,[GLAccountDistribution]
-					,[GLAccountCost]
-					,[CurrentInventoryCostPrice]
-					,[CostPriceCurrency]
-					,[initalPurchaseOrderNr]
-					,[initalPurchaseOrderLineId]
-					FROM  [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (NOLOCK)
-					WHERE cTOr.rowstatus = -1
-					AND runid = '%runid%'
-				</datasource>
-				<contentbody>
+                </datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>200</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Set Fail on too many tries (rowstatus = -1)</stepname></step><step><id>5440</id><entity>-none-</entity><action>create</action><source>103</source><target>6</target><datasource>
+                    SELECT
+                    'ABEI Encountered difficulties creating Transport Orders in Job %jobid%' as querySubject
+                    , [Id]
+                    ,[ExactDbNum]
+                    ,[syscreated]
+                    ,[sysmodified]
+                    ,[runid]
+                    ,[rowstatus]
+                    ,[sysmessage]
+                    ,[retry_counter]
+                    ,[bkstnr]
+                    ,[artcode]
+                    ,[aantal]
+                    ,FORMAT( [datumOntvangst], 'd', 'nl-NL') as [datumOntvangst]
+                    ,[orderLineID]
+                    ,[ordernr]
+                    ,[levwijze]
+                    ,FORMAT( [planned_deliveryDate], 'd', 'nl-NL') as [planned_deliveryDate]
+                    ,[PackageDescription]
+                    ,[GLAccountDistribution]
+                    ,[GLAccountCost]
+                    ,[CurrentInventoryCostPrice]
+                    ,[CostPriceCurrency]
+                    ,[initalPurchaseOrderNr]
+                    ,[initalPurchaseOrderLineId]
+                    , [magcode_FoB]
+                    , [magcode]
+                    FROM  [%abeisourcedb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]  as cTOr WITH (NOLOCK)
+                    WHERE cTOr.rowstatus = -1
+                    AND runid = '%runid%'
+                </datasource><contentbody>
 					&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;
 					&lt;HTML&gt;
 					&lt;HEAD&gt;&lt;META content="text/html; charset=UTF-8" http-equiv=Content-Type /&gt;&lt;META name=GENERATOR content="MSHTML 11.00.9600.18036" /&gt;&lt;/HEAD&gt;&lt;body &gt;&lt;p&gt;&lt;font face="Calibri"&gt;Geachte lezer,&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;font face="Calibri"&gt;&lt;p&gt;Onderstaande meldingen zijn voorgekomen bij het aanmaken van de Transport Orders in&lt;br&gt;Transport Orders (dit zijn purchase orders met selcode &lt;font color="black"&gt;TR&lt;/font&gt;) worden aangemaakt wanneer&amp;nbsp; &lt;strong&gt;Free on Board &lt;/strong&gt;Purchase Orders ontvangen worden in &lt;em&gt;'Warehouse 99'&lt;/em&gt;&lt;/p&gt;&lt;p&gt;U ontvangt deze mail zodat u na kunt kijken en eventueel correcties door kunt voeren.&lt;br&gt;De reeds ontvangen goederen voor de Purchase Orders in onderstaand overzicht&amp;nbsp;zullen niet opnieuw geautomatiseerd een Transport Order genereren.&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;table style="border-width: 1px; border-collapse: collapse;" border="1" cellspacing="0" cellpadding="1"&gt;&lt;tbody&gt;&lt;tr bgcolor="skyblue"&gt;&lt;td&gt;PO ordernr&lt;/td&gt;&lt;td&gt;PO Crediteur&lt;/td&gt;&lt;td&gt;Ontvangst&lt;br&gt;(bkstnr)&lt;/td&gt;&lt;td&gt;Art. Code&lt;/td&gt;&lt;td&gt;aantal&lt;/td&gt;&lt;td&gt;Levering&lt;br&gt;Wijze&lt;/td&gt;&lt;td&gt;datum &lt;br&gt;Ontvangst&lt;/td&gt;&lt;td&gt;geplande&lt;br&gt;Leverdatum&lt;br&gt;&lt;/td&gt;&lt;td&gt;Transport &lt;br&gt;Dagen&lt;/td&gt;&lt;td&gt;Voorraad&lt;br&gt;Grootboek&lt;/td&gt;&lt;td&gt;initiële PO&lt;br&gt;OrderNr&lt;br&gt;(als aanwezig)&lt;/td&gt;&lt;td&gt;initiële PO&lt;br&gt;OrderLine Id&lt;br&gt;(als aanwezig)&lt;/td&gt;&lt;td&gt;# keer&lt;br&gt;geprobeerd&lt;/td&gt;&lt;td&gt;Meding&lt;/td&gt;&lt;/tr&gt;&lt;tr class="abei_dynamic_row"&gt;&lt;td&gt;%ordernr%&lt;/td&gt;&lt;td&gt;%purchaseCreditor%&lt;/td&gt;&lt;td&gt;%bkstnr%&lt;/td&gt;&lt;td&gt;%artcode%&lt;/td&gt;&lt;td&gt;%aantal%&lt;/td&gt;&lt;td&gt;%levwijze%&lt;/td&gt;&lt;td&gt;%datumOntvangst%&lt;/td&gt;&lt;td&gt;%planned_deliveryDate%&lt;/td&gt;&lt;td&gt;%additionalDelDays%&lt;/td&gt;&lt;td&gt;&lt;font face="Consolas" size="2"&gt;&lt;font face="Consolas" size="2"&gt;%GLAccountDistribution%&lt;/font&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;%&lt;font face="Consolas" size="2"&gt;&lt;font face="Consolas" size="2"&gt;initalPurchaseOrderNr%&lt;/font&gt;&lt;/font&gt;&lt;/td&gt;&lt;td&gt;%&lt;font face="Consolas" size="2"&gt;initalPurchase&lt;/font&gt;OrderLineId%&lt;/td&gt;&lt;td&gt;%retry_counter%&lt;/td&gt;&lt;td&gt;%sysmessage%&lt;/td&gt;&lt;/tr&gt;&lt;tr bgcolor="silver" color="black"&gt;&lt;td colspan="25"&gt;&amp;nbsp;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/font&gt;&lt;p&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;br&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;Deze mail is automatisch gegenereerd door ABEI om %abeinow% &lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;p&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;&lt;font face="Calibri"&gt;Exact&amp;nbsp;DB: %ExactDbNum%.&lt;br&gt;Server: %abeiserver%&lt;br&gt;Runid: %runid%&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;&lt;pre&gt;&lt;br&gt;&lt;/pre&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;/body&gt;&lt;/HTML&gt;
-				</contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>210</seqno>
-				<settings>retryunique=0;uniquekey=;emailfrom=info@quooker.nl;emailname=info@quooker.nl;emailreplyto=info@quooker.nl;emailuser=relay@quooker.com;emailpwd=YXc4PVd5Oj7Lf0Lk8N+QYg%equalchar%%equalchar%;emailserver=smtp.office365.com;emailport=587;emailssl=True;emailto=%param_email_for_send_message%;emailcc=;emailbcc=;emailsub=%querySubject%;emailbodyusesource=0;emailsendifnoresults=0;emailcontentcolumns=ordernr,purchaseCreditor,bkstnr,artcode,aantal,levwijze,datumOntvangst,planned_deliveryDate,additionalDelDays,transporterCreditor,transportOrderNr,transportOrderLineId;mex_connectionid=0;emailsplitcolumn=querySubject;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>querySubject</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>Id</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ExactDbNum</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>syscreated</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>sysmodified</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>runid</name>
-									<type>Guid</type>
-								</datacolumn>
-								<datacolumn>
-									<name>rowstatus</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>sysmessage</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>retry_counter</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bkstnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>artcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>aantal</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>datumOntvangst</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>orderLineID</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordernr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>planned_deliveryDate</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>PackageDescription</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>GLAccountDistribution</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>GLAccountCost</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>CurrentInventoryCostPrice</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>CostPriceCurrency</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>initalPurchaseOrderNr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>initalPurchaseOrderLineId</name>
-									<type>Int32</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-						<email>
-							<emailattachment_allowduplicate>false</emailattachment_allowduplicate>
-							<emailimpersonation_account />
-							<emailbodytype>html</emailbodytype>
-							<emailsaveasdraft>false</emailsaveasdraft>
-							<attachments />
-						</email>
-					</settings>
-				</settingsxml>
-				<stepname>Emai Fails this run</stepname>
-			</step>
-			<step>
-				<id>27436</id>
-				<entity>-none-</entity>
-				<action>process</action>
-				<source>0</source>
-				<target>80</target>
-				<datasource>
+				</contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>210</seqno><settings>retryunique=0;uniquekey=;emailfrom=info@quooker.nl;emailname=info@quooker.nl;emailreplyto=info@quooker.nl;emailuser=relay@quooker.com;emailpwd=YXc4PVd5Oj7Lf0Lk8N+QYg%equalchar%%equalchar%;emailserver=smtp.office365.com;emailport=587;emailssl=True;emailto=%param_email_for_send_message%;emailcc=;emailbcc=;emailsub=%querySubject%;emailbodyusesource=0;emailsendifnoresults=0;emailcontentcolumns=ordernr,purchaseCreditor,bkstnr,artcode,aantal,levwijze,datumOntvangst,planned_deliveryDate,additionalDelDays,transporterCreditor,transportOrderNr,transportOrderLineId;mex_connectionid=0;emailsplitcolumn=querySubject;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>querySubject</name><type>String</type></datacolumn><datacolumn><name>Id</name><type>Int32</type></datacolumn><datacolumn><name>ExactDbNum</name><type>Int32</type></datacolumn><datacolumn><name>syscreated</name><type>DateTime</type></datacolumn><datacolumn><name>sysmodified</name><type>DateTime</type></datacolumn><datacolumn><name>runid</name><type>Guid</type></datacolumn><datacolumn><name>rowstatus</name><type>Int32</type></datacolumn><datacolumn><name>sysmessage</name><type>String</type></datacolumn><datacolumn><name>retry_counter</name><type>Int32</type></datacolumn><datacolumn><name>bkstnr</name><type>String</type></datacolumn><datacolumn><name>artcode</name><type>String</type></datacolumn><datacolumn><name>aantal</name><type>Double</type></datacolumn><datacolumn><name>datumOntvangst</name><type>String</type></datacolumn><datacolumn><name>orderLineID</name><type>Int32</type></datacolumn><datacolumn><name>ordernr</name><type>String</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>planned_deliveryDate</name><type>String</type></datacolumn><datacolumn><name>PackageDescription</name><type>String</type></datacolumn><datacolumn><name>GLAccountDistribution</name><type>String</type></datacolumn><datacolumn><name>GLAccountCost</name><type>String</type></datacolumn><datacolumn><name>CurrentInventoryCostPrice</name><type>Double</type></datacolumn><datacolumn><name>CostPriceCurrency</name><type>String</type></datacolumn><datacolumn><name>initalPurchaseOrderNr</name><type>String</type></datacolumn><datacolumn><name>initalPurchaseOrderLineId</name><type>Int32</type></datacolumn></datacolumns></general><email><emailattachment_allowduplicate>false</emailattachment_allowduplicate><emailimpersonation_account /><emailbodytype>html</emailbodytype><emailsaveasdraft>false</emailsaveasdraft><attachments /></email></settings></settingsxml><stepname>Emai Fails this run</stepname></step><step><id>5441</id><entity>-none-</entity><action>process</action><source>0</source><target>80</target><datasource>
 					SELECT CASE WHEN LOWER('%param_retry_directly%') = 'true'
 					THEN 95 -- Quit if nothing to do
 					ELSE 300 -- Log End
 					END as gotoStepNo
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>215</seqno>
-				<settings>uniquekey=;retryunique=0;sysaction=12;sysfilefolder=;sysparams=;syswait=True;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<jobparams />
-							<datacolumns>
-								<datacolumn>
-									<name>gotoStepNo</name>
-									<type>Int32</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-						<systemtarget>
-							<systemtarget_param2 />
-							<systemtarget_param3 />
-							<systemtarget_param4 />
-							<systemtarget_param5 />
-							<systemtarget_param6 />
-							<systemtarget_skiptoseqno>%gotoStepNo%</systemtarget_skiptoseqno>
-							<systemtarget_sleep>0</systemtarget_sleep>
-							<systemtarget_user />
-							<systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd>
-						</systemtarget>
-					</settings>
-				</settingsxml>
-				<stepname>Directly Retry if param set  ------------ 95^</stepname>
-			</step>
-			<step>
-				<id>27437</id>
-				<entity>-none-</entity>
-				<action>exec SQL</action>
-				<source>103</source>
-				<target>103</target>
-				<datasource>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>215</seqno><settings>uniquekey=;retryunique=0;sysaction=12;sysfilefolder=;sysparams=;syswait=True;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><jobparams /><datacolumns><datacolumn><name>gotoStepNo</name><type>Int32</type></datacolumn></datacolumns></general><systemtarget><systemtarget_param2 /><systemtarget_param3 /><systemtarget_param4 /><systemtarget_param5 /><systemtarget_param6 /><systemtarget_skiptoseqno>%gotoStepNo%</systemtarget_skiptoseqno><systemtarget_sleep>0</systemtarget_sleep><systemtarget_user /><systemtarget_pwd>TFEEY7QNB86Yzc1ll50jtg%equalchar%%equalchar%</systemtarget_pwd></systemtarget></settings></settingsxml><stepname>Directly Retry if param set  ------------ 95^</stepname></step><step><id>5442</id><entity>-none-</entity><action>exec SQL</action><source>103</source><target>103</target><datasource>
 					DECLARE @stepName [varchar](255) = 'ABSC: Log End'
 					DECLARE @numProcessed int
 
 					-- Check Order Creation
 					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
 					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, @stepName, 'Job Finished to completion.')
-				</datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>0</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>300</seqno>
-				<settings>uniquekey=;retryunique=0;</settings>
-				<settingsxml>
-					<settings>
-						<general>
-							<gen_datasource_method>0</gen_datasource_method>
-							<target_override />
-							<referencekey />
-							<datacolumns>
-								<datacolumn>
-									<name>refer</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>afldat</name>
-									<type>DateTime</type>
-								</datacolumn>
-								<datacolumn>
-									<name>magcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>selcode</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ord_soort</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>fiattering</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>ordbv_afgd</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>levwijze</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>colli</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bruto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>netto_gew</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>tot_bdr</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>crdnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ord_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_ship_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_kb_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_disc_val</name>
-									<type>Double</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_ev_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>bdr_vat_val</name>
-									<type>Int32</type>
-								</datacolumn>
-								<datacolumn>
-									<name>projectnr</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield1</name>
-									<type>String</type>
-								</datacolumn>
-								<datacolumn>
-									<name>freefield2</name>
-									<type>String</type>
-								</datacolumn>
-							</datacolumns>
-						</general>
-					</settings>
-				</settingsxml>
-				<stepname>ABSC: Log End</stepname>
-			</step>
-			<step>
-				<id>27438</id>
-				<entity>-none-</entity>
-				<action>textline</action>
-				<source>0</source>
-				<target>0</target>
-				<datasource></datasource>
-				<contentbody></contentbody>
-				<mapping></mapping>
-				<disable>1</disable>
-				<remarks></remarks>
-				<replace></replace>
-				<seqno>10100</seqno>
-				<settings></settings>
-				<settingsxml />
-				<stepname>==                   THE END                     ==</stepname>
-			</step>
-		</steps>
-	</job>
-</jobs>
+				</datasource><contentbody></contentbody><mapping></mapping><disable>0</disable><remarks></remarks><replace></replace><seqno>300</seqno><settings>uniquekey=;retryunique=0;</settings><settingsxml><settings><general><gen_datasource_method>0</gen_datasource_method><target_override /><referencekey /><datacolumns><datacolumn><name>refer</name><type>String</type></datacolumn><datacolumn><name>afldat</name><type>DateTime</type></datacolumn><datacolumn><name>magcode</name><type>String</type></datacolumn><datacolumn><name>selcode</name><type>String</type></datacolumn><datacolumn><name>ord_soort</name><type>String</type></datacolumn><datacolumn><name>fiattering</name><type>Int32</type></datacolumn><datacolumn><name>ordbv_afgd</name><type>Int32</type></datacolumn><datacolumn><name>levwijze</name><type>String</type></datacolumn><datacolumn><name>colli</name><type>String</type></datacolumn><datacolumn><name>bruto_gew</name><type>Double</type></datacolumn><datacolumn><name>netto_gew</name><type>Double</type></datacolumn><datacolumn><name>tot_bdr</name><type>Int32</type></datacolumn><datacolumn><name>crdnr</name><type>String</type></datacolumn><datacolumn><name>bdr_vat_ord_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_ship_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_kb_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_disc_val</name><type>Double</type></datacolumn><datacolumn><name>bdr_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_ev_val</name><type>Int32</type></datacolumn><datacolumn><name>bdr_vat_val</name><type>Int32</type></datacolumn><datacolumn><name>projectnr</name><type>String</type></datacolumn><datacolumn><name>freefield1</name><type>String</type></datacolumn><datacolumn><name>freefield2</name><type>String</type></datacolumn></datacolumns></general></settings></settingsxml><stepname>ABSC: Log End</stepname></step><step><id>5443</id><entity>-none-</entity><action>textline</action><source>0</source><target>0</target><datasource></datasource><contentbody></contentbody><mapping></mapping><disable>1</disable><remarks></remarks><replace></replace><seqno>10100</seqno><settings></settings><settingsxml /><stepname>==                   THE END                     ==</stepname></step></steps></job></jobs>
