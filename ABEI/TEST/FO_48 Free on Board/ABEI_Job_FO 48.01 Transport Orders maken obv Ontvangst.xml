@@ -1,17 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <jobs>
-	<instanceguid>276302b1-8de5-494d-8283-de0765958a99</instanceguid>
+	<instanceguid>f6fcce99-28a1-49a2-9891-e5b8a31d4f48</instanceguid>
 	<job>
-		<id>1351</id>
+		<id>1398</id>
 		<jobname>FO 48.01 Transport Orders maken obv Ontvangst</jobname>
 		<disable>False</disable>
 		<emailbody></emailbody>
-		<emailmode>0</emailmode>
+		<emailmode>1</emailmode>
 		<emailsubject></emailsubject>
 		<emailto>h.oosting@absc.nl</emailto>
 		<remarks>
 			219: 00.933.786
 			FO: 04.162.147
+
+			w.vander.burg@absc.nl
 		</remarks>
 		<schedulename></schedulename>
 		<schedulesettings></schedulesettings>
@@ -46,7 +48,7 @@
 							<day6>0</day6>
 							<day7>0</day7>
 							<duration_start>2022-09-04</duration_start>
-							<duration_end>2073-09-26</duration_end>
+							<duration_end>2073-12-21</duration_end>
 						</scheduledetails>
 					</schedules>
 				</schedule>
@@ -60,7 +62,7 @@
 					<jobparam>
 						<name>param_email_for_send_message</name>
 						<type>String</type>
-						<value>w.vander.burg@absc.nl</value>
+						<value>inkoop@quooker.nl;h.oosting@absc.nl</value>
 					</jobparam>
 					<jobparam>
 						<name>param_eg_database_name</name>
@@ -90,12 +92,12 @@
 					<jobparam>
 						<name>Tablename_Preceder</name>
 						<type>String</type>
-						<value>_AB_tb_W99_FoB</value>
+						<value>_AB_tb_FO-48-FreeOnBoard</value>
 					</jobparam>
 					<jobparam>
 						<name>param_from_afldat</name>
 						<type>String</type>
-						<value>2023-01-17</value>
+						<value>2023-08-01</value>
 					</jobparam>
 					<jobparam>
 						<name>param_default_transporterCreditor</name>
@@ -137,7 +139,7 @@
 		</settingsxml>
 		<steps>
 			<step>
-				<id>3731</id>
+				<id>27385</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>0</source>
@@ -192,7 +194,7 @@
 				<stepname>Quit job if job already running</stepname>
 			</step>
 			<step>
-				<id>3732</id>
+				<id>27386</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>0</source>
@@ -230,7 +232,7 @@
 				<stepname>Activate additional fields (EG)</stepname>
 			</step>
 			<step>
-				<id>3733</id>
+				<id>27387</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -247,7 +249,7 @@
 				<stepname>==  Initialize &amp; Masintain Data Structure  ==</stepname>
 			</step>
 			<step>
-				<id>3734</id>
+				<id>27388</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -399,7 +401,7 @@
 				<stepname>ABSC: Initialiseer Datamodel</stepname>
 			</step>
 			<step>
-				<id>3735</id>
+				<id>27389</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -433,7 +435,7 @@
 				<stepname>ABSC: Clear old log</stepname>
 			</step>
 			<step>
-				<id>3736</id>
+				<id>27390</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -471,7 +473,7 @@
 					, CASE UPPER(receipts.levwijze)
 					WHEN 'DHL' THEN '   356'
 					WHEN 'ROTRA' THEN '  3379'
-					WHEN 'FEDEX' THEN ''
+					WHEN 'FEDEX' THEN '   842'
 					ELSE '%param_default_transporterCreditor%'
 					END as transporterCreditor
 					, POline.ID as orderLineID --(int)
@@ -520,7 +522,7 @@
 					-- Filter Purchase  Orders
 					AND POHead.ord_soort = 'B'                  -- Purchase Order
 					AND POHead.magcode = 99                     -- Warehouse 99   PO was meant for Warehouse 99 (Filter Free On Board PO's)
-					AND UPPER(POHead.levwijze) in ('DHL', 'ROTRA', 'FEDEX') -- FILTER ONLY 'Known' Creditors for WareHouse 99
+					AND UPPER(POHead.levwijze) in ('TNT', 'DHL', 'ROTRA', 'FEDEX') -- FILTER ONLY 'Known' Creditors for WareHouse 99
 					-- NOT already in process
 					AND iPOr.ID IS NULL
 					ORDER BY selectGM.datum ASC
@@ -571,7 +573,7 @@
 				<stepname>EG: Check for new PurchaseOrder Deliveries</stepname>
 			</step>
 			<step>
-				<id>3737</id>
+				<id>27391</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -588,7 +590,7 @@
 				<stepname>==       Get &amp; Check Data to Process      ==</stepname>
 			</step>
 			<step>
-				<id>3738</id>
+				<id>27392</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>103</source>
@@ -634,7 +636,7 @@
 				<stepname>Stop Job if nothing to do ------------------</stepname>
 			</step>
 			<step>
-				<id>3739</id>
+				<id>27393</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -747,7 +749,7 @@
 				<stepname>EG: Check for existing TransportOrders</stepname>
 			</step>
 			<step>
-				<id>3740</id>
+				<id>27394</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -911,7 +913,7 @@
 				<stepname>ABSC: Set Processing Status (rowstatus = 1)</stepname>
 			</step>
 			<step>
-				<id>3741</id>
+				<id>27395</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>103</source>
@@ -955,7 +957,7 @@
 				<stepname>Stop Job if nothing to do ------------------</stepname>
 			</step>
 			<step>
-				<id>3742</id>
+				<id>27396</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -972,7 +974,7 @@
 				<stepname>||                   DO ACTION                   ||</stepname>
 			</step>
 			<step>
-				<id>3743</id>
+				<id>27397</id>
 				<entity>ItemAccount</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1019,7 +1021,7 @@
 				<stepname>EG: Check or Create Item-Creditor Relation</stepname>
 			</step>
 			<step>
-				<id>3744</id>
+				<id>27398</id>
 				<entity>PurchaseOrderLine</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1094,7 +1096,7 @@
 				<stepname>EG: Create TransportOrder (Lines)</stepname>
 			</step>
 			<step>
-				<id>3745</id>
+				<id>27399</id>
 				<entity>PurchaseOrderHeader</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1238,7 +1240,7 @@
 				<stepname>EG: Create TransportOrder (Header)</stepname>
 			</step>
 			<step>
-				<id>3748</id>
+				<id>27400</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -1421,7 +1423,7 @@
 				<stepname>ABSC: Collect EG Create Results (Header)</stepname>
 			</step>
 			<step>
-				<id>3749</id>
+				<id>27401</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -1619,7 +1621,7 @@
 				<stepname>ABSC: Collect EG Create Results (Line)</stepname>
 			</step>
 			<step>
-				<id>3813</id>
+				<id>27402</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -1812,7 +1814,7 @@
 				<stepname>ABSC: Check for Auto-Authorization</stepname>
 			</step>
 			<step>
-				<id>3746</id>
+				<id>27403</id>
 				<entity>SDK-PurchaseOrder-Authorize</entity>
 				<action>process</action>
 				<source>103</source>
@@ -1856,7 +1858,7 @@
 				<stepname>EG: 'Authorize' Created Orders</stepname>
 			</step>
 			<step>
-				<id>3750</id>
+				<id>27404</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -2075,7 +2077,7 @@
 				<stepname>ABSC: Collect EG SDK Results (Authorize)</stepname>
 			</step>
 			<step>
-				<id>3747</id>
+				<id>27405</id>
 				<entity>SDK-PurchaseOrder-PrintProcess</entity>
 				<action>process</action>
 				<source>103</source>
@@ -2132,7 +2134,7 @@
 				<stepname>EG: 'Print' Created Orders</stepname>
 			</step>
 			<step>
-				<id>3751</id>
+				<id>27406</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -2348,7 +2350,7 @@
 				<stepname>ABSC: Collect EG SDK Results (Print)</stepname>
 			</step>
 			<step>
-				<id>3752</id>
+				<id>27407</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -2519,7 +2521,7 @@
 				<stepname>ABSC: EG Results List Success (rowstatus=2)</stepname>
 			</step>
 			<step>
-				<id>3753</id>
+				<id>27408</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>0</source>
@@ -2691,7 +2693,7 @@
 				<stepname>ABSC: Count Retry (retry+1)</stepname>
 			</step>
 			<step>
-				<id>3754</id>
+				<id>27409</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -2708,7 +2710,7 @@
 				<stepname>==                FAIL Handling                  ==</stepname>
 			</step>
 			<step>
-				<id>3755</id>
+				<id>27410</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -2868,7 +2870,7 @@
 				<stepname>ABSC: Set Fail on too many tries (rowstatus = -1)</stepname>
 			</step>
 			<step>
-				<id>3756</id>
+				<id>27411</id>
 				<entity>-none-</entity>
 				<action>create</action>
 				<source>103</source>
@@ -3025,7 +3027,7 @@
 				<stepname>Emai Fails this run</stepname>
 			</step>
 			<step>
-				<id>3757</id>
+				<id>27412</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>103</source>
@@ -3073,7 +3075,7 @@
 				<stepname>Directly Retry if param set  ------------ 95^</stepname>
 			</step>
 			<step>
-				<id>3758</id>
+				<id>27413</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -3199,7 +3201,7 @@
 				<stepname>ABSC: Log End</stepname>
 			</step>
 			<step>
-				<id>3759</id>
+				<id>27414</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>

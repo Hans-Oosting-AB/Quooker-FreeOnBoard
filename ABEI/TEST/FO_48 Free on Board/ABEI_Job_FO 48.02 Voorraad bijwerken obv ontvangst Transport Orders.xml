@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <jobs>
-	<instanceguid>276302b1-8de5-494d-8283-de0765958a99</instanceguid>
+	<instanceguid>f6fcce99-28a1-49a2-9891-e5b8a31d4f48</instanceguid>
 	<job>
-		<id>1353</id>
+		<id>1399</id>
 		<jobname>FO 48.02 Voorraad bijwerken obv ontvangst Transport Orders</jobname>
 		<disable>False</disable>
 		<emailbody></emailbody>
@@ -36,7 +36,7 @@
 							<frequency_dayofmonth_daypos>1</frequency_dayofmonth_daypos>
 							<frequency_dayofmonth_type>nr</frequency_dayofmonth_type>
 							<scheduledenabled>-1</scheduledenabled>
-							<startat>11:26:27</startat>
+							<startat>15:13:06</startat>
 							<beginat>08:02:00</beginat>
 							<endat>17:59:59</endat>
 							<day1>-1</day1>
@@ -46,8 +46,8 @@
 							<day5>-1</day5>
 							<day6>0</day6>
 							<day7>0</day7>
-							<duration_start>2022-09-04</duration_start>
-							<duration_end>2073-09-26</duration_end>
+							<duration_start>2022-10-31</duration_start>
+							<duration_end>2073-12-21</duration_end>
 						</scheduledetails>
 					</schedules>
 				</schedule>
@@ -61,7 +61,7 @@
 					<jobparam>
 						<name>param_email_for_send_message</name>
 						<type>String</type>
-						<value>w.vander.burg@absc.nl</value>
+						<value>inkoop@quooker.nl;h.oosting@absc.nl</value>
 					</jobparam>
 					<jobparam>
 						<name>param_eg_database_name</name>
@@ -91,17 +91,12 @@
 					<jobparam>
 						<name>Tablename_Preceder</name>
 						<type>String</type>
-						<value>_AB_tb_W99_FoB</value>
+						<value>_AB_tb_FO-48-FreeOnBoard</value>
 					</jobparam>
 					<jobparam>
 						<name>param_from_afldat</name>
 						<type>String</type>
-						<value>2023-01-17</value>
-					</jobparam>
-					<jobparam>
-						<name>param_default_transporterCreditor</name>
-						<type>String</type>
-						<value>1658</value>
+						<value>2023-10-17</value>
 					</jobparam>
 					<jobparam>
 						<name>param_default_warehouse</name>
@@ -112,16 +107,6 @@
 						<name>param_log_max_retain_days</name>
 						<type>String</type>
 						<value>60</value>
-					</jobparam>
-					<jobparam>
-						<name>obsolete_order_Header_additionalfield_name</name>
-						<type>String</type>
-						<value>Field09</value>
-					</jobparam>
-					<jobparam>
-						<name>obsolete_order_Line_additionalfield_name</name>
-						<type>String</type>
-						<value>Field09</value>
 					</jobparam>
 					<jobparam>
 						<name>param_retry_directly</name>
@@ -168,7 +153,7 @@
 		</settingsxml>
 		<steps>
 			<step>
-				<id>3787</id>
+				<id>27415</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>0</source>
@@ -223,7 +208,7 @@
 				<stepname>Quit job if job already running</stepname>
 			</step>
 			<step>
-				<id>3788</id>
+				<id>27416</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>0</source>
@@ -261,7 +246,7 @@
 				<stepname>Activate additional fields (EG)</stepname>
 			</step>
 			<step>
-				<id>3789</id>
+				<id>27417</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -278,7 +263,7 @@
 				<stepname>==  Initialize &amp; Masintain Data Structure  ==</stepname>
 			</step>
 			<step>
-				<id>3790</id>
+				<id>27418</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -440,7 +425,7 @@
 				<stepname>ABSC: Initialiseer Datamodel</stepname>
 			</step>
 			<step>
-				<id>3791</id>
+				<id>27419</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -474,7 +459,7 @@
 				<stepname>ABSC: Clear old log</stepname>
 			</step>
 			<step>
-				<id>3792</id>
+				<id>27420</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -552,7 +537,7 @@
 					ON TOHead.ordernr = selectGM.bkstnr_sub
 					INNER JOIN [%abeisourcedb%].dbo.AdditionalOrderHeader oht
 					ON oht.OrderNumber = TOHead.ordernr
-					LEFT JOIN [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
+					LEFT JOIN [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] AS cTOr WITH (NOLOCK)
 					ON selectGM.bkstnr = cTOr.bkstnr
 					WHERE 1=1
 					-- Filter receipts in Warehouse 03
@@ -647,7 +632,7 @@
 				<stepname>EG: Check for new TransportOrder Deliveries</stepname>
 			</step>
 			<step>
-				<id>3793</id>
+				<id>27421</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -664,7 +649,7 @@
 				<stepname>==       Get &amp; Check Data to Process      ==</stepname>
 			</step>
 			<step>
-				<id>3794</id>
+				<id>27422</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -828,7 +813,7 @@
 				<stepname>ABSC: Set Processing Status (rowstatus = 1)</stepname>
 			</step>
 			<step>
-				<id>3795</id>
+				<id>27423</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>103</source>
@@ -872,7 +857,7 @@
 				<stepname>Stop Job if nothing to do ------------------</stepname>
 			</step>
 			<step>
-				<id>3796</id>
+				<id>27424</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -889,7 +874,7 @@
 				<stepname>||                   DO ACTION                   ||</stepname>
 			</step>
 			<step>
-				<id>3797</id>
+				<id>27425</id>
 				<entity>FinancialLine</entity>
 				<action>create</action>
 				<source>103</source>
@@ -998,7 +983,7 @@
 				<stepname>EG: Create Inventory Fin Mem Debet (Lines)</stepname>
 			</step>
 			<step>
-				<id>3798</id>
+				<id>27426</id>
 				<entity>FinancialLine</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1107,7 +1092,7 @@
 				<stepname>EG: Create Inventory Fin Mem Credit Cost (Lines)</stepname>
 			</step>
 			<step>
-				<id>3799</id>
+				<id>27427</id>
 				<entity>FinancialHeader</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1176,7 +1161,7 @@
 				<stepname>EG: Create Inventory Financial Memorial (Header)</stepname>
 			</step>
 			<step>
-				<id>3800</id>
+				<id>27428</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -1207,7 +1192,7 @@
 					END
 					, cTOr.[initalPurchaseOrderNr]
 					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
 					AND EntJS.seqno =  100 -- Create Inventory Change
@@ -1244,7 +1229,7 @@
 					ELSE ISNULL(EntRL.errormessage, 'No result for Inventory Change Financial Line found for ' + EntRL.ReferenceValue ) END
 					, cTOr.[initalPurchaseOrderNr]
 					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
 					-- Results for lines
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
@@ -1286,7 +1271,7 @@
 					--    , [createdBkstnr] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
 					--                        THEN ATK.bkstnr
 					--                        ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
 					AND EntJS.seqno =  100 -- Create Inventory Change
@@ -1345,7 +1330,7 @@
 					, [createdBkstnr] = CASE WHEN ISNULL(EntRL.rowstatus,-1) = 2
 					THEN ATK.bkstnr
 					ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
 					AND EntJS.seqno =  100 -- Create Inventory Change
@@ -1496,7 +1481,7 @@
 				<stepname>ABSC: Collect EG Create Fin Mem Results for step 100</stepname>
 			</step>
 			<step>
-				<id>3801</id>
+				<id>27429</id>
 				<entity>FinancialLine</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1589,7 +1574,7 @@
 				<stepname>EG: Create Purchase Invoice (Lines)</stepname>
 			</step>
 			<step>
-				<id>3802</id>
+				<id>27430</id>
 				<entity>FinancialHeader</entity>
 				<action>create</action>
 				<source>103</source>
@@ -1663,7 +1648,7 @@
 				<stepname>EG: Create Purchase Invoice (Header)</stepname>
 			</step>
 			<step>
-				<id>3803</id>
+				<id>27431</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>101</source>
@@ -1694,7 +1679,7 @@
 					END
 					, cTOr.[initalPurchaseOrderNr]
 					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
 					AND EntJS.seqno = 120  -- Create Purchase Invoice
@@ -1731,7 +1716,7 @@
 					ELSE ISNULL(EntRL.errormessage, 'No result for Financial Line Purchase Invoice found for ' + EntRL.ReferenceValue ) END
 					, cTOr.[initalPurchaseOrderNr]
 					, cTOr.[initalPurchaseOrderLineId]
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (NOLOCK)
 					-- Results for lines
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS  with (nolock)
 					ON EntJS.jobid = %jobid%
@@ -1771,7 +1756,7 @@
 					, [PurchaseInvoice_HeaderEntry] = CASE WHEN ISNULL(EntRH.rowstatus,-1) = 2 --AND ISNULL(EntRL.rowstatus,-1) = 2
 					THEN EntRH.NewKeyvalue
 					ELSE NULL END
-					FROM [%abeitargetdb%].[dbo].[_AB_tb_W99_FoB_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
+					FROM [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts] as cTOr WITH (ROWLOCK, NOWAIT)
 					INNER JOIN [%abeidb%].dbo._AB_Entity_Jobsteps EntJS
 					ON EntJS.jobid = %jobid%
 					AND EntJS.seqno = 120  -- Create Purchase Invoice
@@ -1917,7 +1902,7 @@
 				<stepname>ABSC: Collect EG Create Pur Inv Results for step 120</stepname>
 			</step>
 			<step>
-				<id>3804</id>
+				<id>27432</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>0</source>
@@ -1971,7 +1956,7 @@
 					WHERE cTOr.rowstatus = 1 -- being processed
 					AND cTOr.AmutakID IS NOT NULL -- Financial Memorial has been listed
 					AND cTOr.[createdBkstnr] IS NOT NULL -- Financial Memorial GbkMut has been listed
-					AND cTOr.PurchaseInvoice_LineEntry IS NOT NULL -- Purchase Invoice has been listed
+					--AND cTOr.PurchaseInvoice_LineEntry IS NOT NULL -- Purchase Invoice has been listed
 					AND cTOr.[PurchaseInvoice_HeaderEntry] IS NOT NULL -- Purchase Invoice GbkMut has been listed
 
 
@@ -2114,7 +2099,7 @@
 				<stepname>ABSC: Set success (rowstatus 2) &amp; Count Retry (retry+1)</stepname>
 			</step>
 			<step>
-				<id>3805</id>
+				<id>27433</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
@@ -2131,7 +2116,7 @@
 				<stepname>==                FAIL Handling                  ==</stepname>
 			</step>
 			<step>
-				<id>3806</id>
+				<id>27434</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>0</source>
@@ -2291,7 +2276,7 @@
 				<stepname>ABSC: Set Fail on too many tries (rowstatus = -1)</stepname>
 			</step>
 			<step>
-				<id>3807</id>
+				<id>27435</id>
 				<entity>-none-</entity>
 				<action>create</action>
 				<source>103</source>
@@ -2454,7 +2439,7 @@
 				<stepname>Emai Fails this run</stepname>
 			</step>
 			<step>
-				<id>3808</id>
+				<id>27436</id>
 				<entity>-none-</entity>
 				<action>process</action>
 				<source>0</source>
@@ -2502,7 +2487,7 @@
 				<stepname>Directly Retry if param set  ------------ 95^</stepname>
 			</step>
 			<step>
-				<id>3809</id>
+				<id>27437</id>
 				<entity>-none-</entity>
 				<action>exec SQL</action>
 				<source>103</source>
@@ -2628,7 +2613,7 @@
 				<stepname>ABSC: Log End</stepname>
 			</step>
 			<step>
-				<id>3810</id>
+				<id>27438</id>
 				<entity>-none-</entity>
 				<action>textline</action>
 				<source>0</source>
