@@ -84,8 +84,11 @@ FROM (SELECT DISTINCT TOP  %param_number_of_records_per_run%            -- MAX n
             -- Filter receipts in Warehouse 03
             AND currentRunGM.transtype = 'N'                    -- Gerealiseerd (itt Gepland 'B')
             AND currentRunGM.transsubtype = 'A'                 -- Spullen
-            AND currentRunGM.warehouse IN ('03', '16')          -- FO-48 Extend CD 04.345.682
-            AND currentRunGM.datum >='%param_from_afldat%'      -- Filter for starting in Production
+            AND ((currentRunGM.warehouse = '03' AND currentRunGM.datum >='%param_from_receive_date_03%')      -- Filter for starting in Production     
+                OR (currentRunGM.warehouse = '16' AND currentRunGM.datum >='%param_from_receive_date_16%')) -- FO-48 Extend CD 04.345.682
+                
+            
+            
 
             -- Filter Transport Orders
             AND currentRunEgOH.ord_soort = 'B'                          -- Purchase Order
