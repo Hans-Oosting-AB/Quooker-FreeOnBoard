@@ -447,17 +447,20 @@
 					ADD --COLUMN
 
 					[magcode_FoB] char(4) NULL
-					[magcode] char(4) NULL
+					, [magcode] char(4) NULL
 
 					-- (Old FoB functionality was about these specific magcodes (Warhouse)
-					UPDATE [dbo].[%Tablename_Preceder%_Log]
+					-- In isolated EXEC to allow columns to be created first
+					EXEC ('
+					UPDATE [dbo].[_AB_tb_FO-48-FreeOnBoard_Log]
 					SET
-					[magcode_FoB] = '99'
-					[magcode] = '03'
+					[magcode_FoB] = ''99''
+					, [magcode] = ''03''
+					')
 					END
 
 					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
-					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Created_TransportOrder_Receipts has magcode columns.')
+					VALUES (%param_eg_division%, %jobid%, %jobstepid%, '%runid%', CURRENT_TIMESTAMP, 'Table(s) %Tablename_Preceder%_*', 'Log has magcode columns.')
 
 
 					IF NOT EXISTS (SELECT *
@@ -473,13 +476,16 @@
 					ADD --COLUMN
 
 					[magcode_FoB] char(4) NULL
-					[magcode] char(4) NULL
+					, [magcode] char(4) NULL
 
 					-- (Old FoB functionality was about these specific magcodes (Warhouse)
-					UPDATE [dbo].[%Tablename_Preceder%_Created_TransportOrder_Receipts]
+					-- In isolated EXEC to allow columns to be created first
+					EXEC ('
+					UPDATE [dbo].[_AB_tb_FO-48-FreeOnBoard_Created_TransportOrder_Receipts]
 					SET
-					[magcode_FoB] = '99'
-					[magcode] = '03'
+					[magcode_FoB] = ''99''
+					, [magcode] = ''03''
+					')
 					END
 
 					INSERT INTO [%abeitargetdb%].[dbo].[%Tablename_Preceder%_Log] (ExactDbNum, jobid, jobstepid, runid, SYSCREATED, SUBJECT, MESSAGE )
@@ -563,7 +569,7 @@
 					GLPriceDifference,
 					[CostPriceCurrency], --  varchar(3) NULL,
 					-- Original inital PO Receipt CostPrice OR latest recount / value of inventory in WareHouse 99
-					CurrentInventoryCostPrice --  float NOT NULL DEFAULT 0,
+					CurrentInventoryCostPrice, --  float NOT NULL DEFAULT 0,
 					[magcode_FoB], -- FO-48 Extend CD 04.345.682
 					[magcode]       -- FO-48 Extend CD 04.345.682
 					)
@@ -1264,7 +1270,7 @@
 					, ordernr
 					, MESSAGE
 					, [initalPurchaseOrderNr]
-					, [initalPurchaseOrderLineId],
+					, [initalPurchaseOrderLineId]
 					, [magcode_FoB] -- FO-48 Extend CD 04.345.682
 					, [magcode] -- FO-48 Extend CD 04.345.682
 					)

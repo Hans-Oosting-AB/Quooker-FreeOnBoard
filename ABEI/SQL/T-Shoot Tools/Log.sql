@@ -8,14 +8,3 @@ SELECT TOP (1000) runid
   ) L2Runs
   ON L2Runs.RunId = L.RunId
 ORDER BY L.ID DESC
-  
-	syscreated > '2023-11-15 09:22'AND syscreated < '2023-11-15 09:25'
-  --bkstnr  IN (23614977 ,23982429 , 23917283)
-  --OR transportOrderNr = '9007610'
-  --  OR transportOrderNr = '9007610'
-
-  SELECT *
-  FROM [115].dbo.gbkmut gm (nolock)
-  WHERE --bkstnr -- IN (23614977 ,23982429 , 23917283)
-   oms25 = '23982423, 90059387, 613726, 90057610, 549300'
-  ORDER BY bkstnr
