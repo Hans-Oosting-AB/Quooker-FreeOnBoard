@@ -31,15 +31,15 @@
 							<forceseparaterun>0</forceseparaterun>
 							<freq>1</freq>
 							<timescale>minutes</timescale>
-							<frequency>never</frequency>
+							<frequency>weekly</frequency>
 							<frequency_recurrence>1</frequency_recurrence>
 							<frequency_dayofmonth>1</frequency_dayofmonth>
 							<frequency_dayofmonth_day>1</frequency_dayofmonth_day>
 							<frequency_dayofmonth_daypos>1</frequency_dayofmonth_daypos>
 							<frequency_dayofmonth_type>nr</frequency_dayofmonth_type>
-							<scheduledenabled>0</scheduledenabled>
+							<scheduledenabled>-1</scheduledenabled>
 							<startat>11:26:27</startat>
-							<beginat>08:02:00</beginat>
+							<beginat>07:02:00</beginat>
 							<endat>17:59:59</endat>
 							<day1>-1</day1>
 							<day2>-1</day2>
